@@ -104,10 +104,37 @@ body {
 
 .account-dropdown:hover .account-dropdown-content {
     display: block;
-    left: auto; /* Ensure the left positioning is auto, so it appears on the right by default */
+    left: auto;
 }
 
 .account-dropdown-content-prihlasit-sa .account-dropdown-content-vytvorit-si-ucet {
     font-weight: bold;
 }
+
+.navigation-bar {
+    margin-top: -20px;
+    padding: 5px;
+    background-color: mediumpurple;
+}
+
+.navigation-bar-list {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+}
+
+.navigation-bar-list li {
+    list-style-type: none;
+}
+
+.navigation-bar-list li a {
+    text-decoration: none;
+    list-style-type: none;
+    padding: 0;
+    margin-left: 30px;
+    color: white;
+    font-weight: bold;
+}
+
+
 
