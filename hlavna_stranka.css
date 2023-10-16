@@ -1,0 +1,31 @@
+body {
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
+}
+
+.header {
+    background-color: mediumpurple;
+    overflow: hidden; /* Clear floats to prevent background issues */
+    text-align: right; /* Align the content to the right */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.header li {
+    list-style-type: none; /* Remove the list-style (dot) from the list items */
+    display: inline; /* Display list items as inline elements */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.header a {
+    text-decoration: none;
+    color: white;
+    margin-right: 10px;
+    font-size: 16px; /* Increase font size as needed */
+    font-weight: bold; /* Apply bold font weight */
+}
+
+.header a:hover {
+    text-decoration: underline; /* Underline the link on hover */
+}
