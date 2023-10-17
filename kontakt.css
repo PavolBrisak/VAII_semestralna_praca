@@ -1,0 +1,50 @@
+.kontakt-form {
+    background-color: mediumpurple;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin: auto;
+    border-color: black;
+    margin-top: 15px;
+}
+
+.kontakt-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+.kontakt-label {
+    margin-left: 10px;
+    text-align: left;
+    color: white;
+    font-weight: bold;
+}
+
+.kontakt-input {
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 5px 10px;
+    width: 80%;
+}
+
+.kontakt-input:focus {
+    outline: none;
+}
+
+.send-button {
+    background-color: darkmagenta;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 50%;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 15px;
+}
