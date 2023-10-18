@@ -1,0 +1,76 @@
+.prihlasenie-nadpis {
+    background-color: mediumpurple;
+    margin: 0;
+    padding: 15px;
+    height: 126px;
+}
+
+.prihlasenie {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.prihlasenie-form {
+    background-color: white;
+    width: 500px;
+    height: 480px;
+}
+
+.prihlasenie-form ul {
+    margin-left: 15px;
+    list-style: none;
+    padding: 10px;
+    text-align: left;
+}
+
+.prihlasenie-form input {
+    width: 90%; /* Make the input fields wider to fill the container */
+    padding: 10px; /* Add padding to increase the size and separate them */
+    margin: 10px 0; /* Add vertical margin to separate the input fields */
+    border: 1px solid #ccc; /* Add a border for clarity */
+    transition: border-color 0.3s;
+}
+
+.prihlasenie-form input:focus {
+    background-color: lightcyan;
+}
+
+.prihlasenie-form li {
+    margin-bottom: 12px;
+}
+
+.prihlasenie-form li:nth-child(1) {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.prihlasenie-form li:nth-last-child(-n+2) {
+    text-align: center;
+}
+
+.prihlasenie-form a {
+    color: black;
+    text-decoration: none;
+}
+
+.prihlasenie-form a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.prihlasenie-form .send-button {
+    display: block;
+    margin: 0 auto; /* Center the button horizontally */
+}
+
+.doplnenie {
+    height: 450px;
+}
+
+.prihlasenie-form,
+.prihlasenie img {
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}

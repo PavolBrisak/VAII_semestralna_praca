@@ -110,7 +110,7 @@ body {
 .navigation-bar {
     margin-top: -20px;
     padding: 5px;
-    background-color: mediumpurple;
+    background-color: white;
 }
 
 .navigation-bar-list {
@@ -128,7 +128,7 @@ body {
     list-style-type: none;
     padding: 0;
     margin-left: 30px;
-    color: white;
+    color: black;
     font-weight: bold;
     font-size: 20px;
 }
