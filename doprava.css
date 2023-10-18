@@ -7,18 +7,25 @@
 .doprava-nadpis p {
     text-align: center;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 40px;
     color: white;
+}
+
+.doprava-a-platba-body {
+    margin-left: 250px;
+    margin-bottom: 60px;
 }
 
 .doprava-a-platba-body p {
     margin-left: 20px;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 25px;
 }
 
 .doprava-a-platba-body li {
+    padding: 5px;
     margin-left: 20px;
+    font-size: 18px;
 }
 
 

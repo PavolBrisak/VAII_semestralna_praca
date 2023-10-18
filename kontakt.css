@@ -3,10 +3,28 @@
     border-radius: 25px;
     display: flex;
     flex-direction: column;
-    width: 600px;
+    width: 650px;
     margin: auto;
     border-color: black;
-    margin-top: 15px;
+    margin-top: 35px;
+    margin-bottom: 50px;
+}
+
+.kontakt-nadpis {
+    background-color: mediumpurple;
+    margin: 0;
+    padding: 15px;
+}
+
+.kontakt-nadpis p {
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    color: white;
+}
+
+.kontakt-form input:not {.kontakt-input-sprava} {
+    height: 50px;
 }
 
 .kontakt-row {
@@ -17,19 +35,30 @@
     margin-top: 15px;
 }
 
-.kontakt-label {
+.kontakt-label, .kontakt-input textarea {
     margin-left: 10px;
     text-align: left;
     color: white;
     font-weight: bold;
 }
 
-.kontakt-input {
+.kontakt-input-meno, .kontakt-input-priezvisko, .kontakt-input-email {
     margin-right: 10px;
     border: 1px solid #ccc;
     border-radius: 25px;
     padding: 5px 10px;
     width: 80%;
+}
+
+.kontakt-input-sprava {
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 5px 10px;
+    width: 80%;
+    height: 150px;
+    resize: vertical;
+    overflow-y: auto;
 }
 
 .kontakt-input:focus {
