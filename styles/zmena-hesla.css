@@ -1,30 +1,30 @@
-.kontakt-form {
+.zmena-hesla-form {
     background-color: white;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     width: 650px;
-    height: 500px;
+    height: 250px;
     margin: auto;
     border-color: black;
     margin-top: 35px;
     margin-bottom: 50px;
 }
 
-.kontakt-form li {
+.zmena-hesla-form li {
     margin-bottom: 12px;
 }
 
-.kontakt-form li:nth-child(1) {
+.zmena-hesla-form li:nth-child(1) {
     font-weight: bold;
     font-size: 25px;
 }
 
-.kontakt-form .send-button {
+.zmena-hesla-form .send-button {
     display: block;
 }
 
-.kontakt-form input {
+.zmena-hesla-form input {
     width: 90%;
     padding: 10px;
     margin: 10px 0;
@@ -32,19 +32,19 @@
     transition: border-color 0.3s;
 }
 
-.kontakt-nadpis {
+.zmena-hesla-nadpis {
     background-color: mediumpurple;
     margin: 0;
     padding: 15px;
     height: 126px;
 }
 
-.kontakt-form li label {
+.zmena-hesla-form li label {
     text-align: left;
     font-weight: bold;
 }
 
-.kontakt-form textarea {
+.zmena-hesla-form textarea {
     margin-top: 10px;
     height: 50px;
     width: 93%;
@@ -54,7 +54,7 @@
     max-height: 1%;
 }
 
-.kontakt-form ul {
+.zmena-hesla-form ul {
     margin-left: 15px;
     list-style: none;
     padding: 10px;

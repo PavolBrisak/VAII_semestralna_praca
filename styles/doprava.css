@@ -28,4 +28,15 @@
     font-size: 18px;
 }
 
+.doprava-obrazky {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+}
+
+.doprava-obrazky-item {
+    padding-right: 100px;
+}
+
+
 
