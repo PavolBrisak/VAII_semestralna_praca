@@ -260,7 +260,7 @@ body {
     margin-bottom: 20px;
 }
 
-.oblubene-kategorie-nadpis ul li {
+.podnadpis ul li {
     list-style-type: none;
     text-align: center;
     font-weight: bold;
@@ -318,7 +318,7 @@ body {
     box-shadow: 0 4px 6px #bbbb4d;
 }
 
-.oblubene-produkty-nadpis ul li {
+.podnadpis ul li {
     list-style-type: none;
     text-align: center;
     font-weight: bold;
@@ -399,16 +399,52 @@ body {
 
 .uvodne-obrazky-column {
     display: flex;
-    flex: 1; /* Distribute columns evenly */
-    padding: 0; /* Remove padding */
+    flex: 1;
+    padding: 0;
 }
 
 .uvodne-obrazky-column a {
-    text-decoration: none; /* Remove underline from links */
+    text-decoration: none;
 }
 
 .uvodne-obrazky-column img {
-    border-radius: 10px; /* Add curved corners to the images */
-    display: block; /* Ensure images don't have extra spacing */
+    border-radius: 10px;
+    display: block;
     margin: 15px;
+}
+
+.produkt-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.produkt {
+    width: 300px;
+    box-shadow: 0 4px 6px mediumpurple;
+    height: 250px;
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+.produkt:hover {
+    box-shadow: 0 4px 6px #bbbb4d;
+}
+
+.produkt-data:first-child {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.produkt-button button {
+    background-color: purple;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.produkt-obrazok img {
+    cursor: pointer;
 }
