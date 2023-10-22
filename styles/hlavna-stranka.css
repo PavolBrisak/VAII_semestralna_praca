@@ -392,3 +392,23 @@ body {
 .benefit-obrazok {
     margin-right: 10px;
 }
+
+.uvodne-obrazky-content {
+    display: flex;
+}
+
+.uvodne-obrazky-column {
+    display: flex;
+    flex: 1; /* Distribute columns evenly */
+    padding: 0; /* Remove padding */
+}
+
+.uvodne-obrazky-column a {
+    text-decoration: none; /* Remove underline from links */
+}
+
+.uvodne-obrazky-column img {
+    border-radius: 10px; /* Add curved corners to the images */
+    display: block; /* Ensure images don't have extra spacing */
+    margin: 15px;
+}
