@@ -58,11 +58,17 @@
     margin: 0 auto;
 }
 
-.doplnenie {
+.filler {
     height: 690px;
 }
 
 .vytvorenie-uctu-form,
 .vytvorenie-uctu img {
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .vytvorenie-uctu img {
+        display: none;
+    }
 }

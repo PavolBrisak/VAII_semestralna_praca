@@ -1,16 +1,3 @@
-.doprava-nadpis {
-    background-color: mediumpurple;
-    margin: 0;
-    padding: 15px;
-}
-
-.doprava-nadpis p {
-    text-align: center;
-    font-weight: bold;
-    font-size: 40px;
-    color: white;
-}
-
 .doprava-a-platba-body {
     margin-left: 250px;
     margin-bottom: 60px;

@@ -3,13 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Sisinkine náušky</title>
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"-->
-    <!--            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"-->
-    <!--            crossorigin="anonymous"></script>-->
-    <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"-->
-    <!--          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">-->
     <link rel="stylesheet" href="styles/hlavna-stranka.css">
 </head>
 <body>
@@ -29,16 +23,14 @@
 </div>
 <div class="search">
     <a class="logo" href="hlavna-stranka.html"><img src="images/logo.png" alt="logo"></a>
-    <label>
-        <input type="text" class="search-bar" placeholder="Vyhľadajte daný tovar v celom obchode tu..">
-    </label>
+    <input type="text" class="search-bar" placeholder="Vyhľadajte daný tovar v celom obchode tu..">
     <a href="#" class="search-icon"><img src="images/magnifying-glass.avif" class="search-icon"
                                          alt="Search icon"></a>
-    <div class="account-dropdown">
+    <div class="dropdown">
         <a href="#" class="account-logo"><i class="bi bi-person"></i></a>
-        <div class="account-dropdown-content">
-            <a href="prihlasenie.html" class="account-dropdown-content-prihlasit-sa">Prihlásiť sa</a>
-            <a href="vytvorenie-uctu.html" class="account-dropdown-content-vytvorit-si-ucet">Vytvoriť si účet</a>
+        <div class="dropdown-content">
+            <a href="prihlasenie.html" class="dropdown-content-item">Prihlásiť sa</a>
+            <a href="vytvorenie-uctu.html" class="dropdown-content-item">Vytvoriť si účet</a>
         </div>
     </div>
     <a href="#" class="cart-logo"><i class="bi bi-cart"></i></a>
@@ -55,7 +47,7 @@
                     <a href="#">Jedlo</a>
                     <a href="#">Pucky</a>
                     <a href="#">Tvary</a>
-                    <a href="#">Vianočné</a>
+                    <a href="vianocne.html">Vianočné</a>
                     <a href="#">Srdiečka</a>
                     <a href="#">Smajlíky</a>
                     <a href="#">Pride</a>
@@ -67,7 +59,7 @@
         </li>
         <li><a href="#">Výpredaj</a></li>
         <li><a href="#">Najpredávanejšie náušky</a></li>
-        <li><a href="#">Materiály na výrobu</a></li>
+        <li><a href="reklamacie.html">Reklamácie</a></li>
         <li><a href="doprava.html">Doprava a platba</a></li>
         <li><a class="navigation-bar-list-kontakty" href="kontakt.html">Kontakty</a></li>
     </ul>
@@ -91,10 +83,35 @@
 </div>
 <div class="podnadpis">
     <ul>
+        <li>Zlacnené produkty</li>
+    </ul>
+</div>
+<div class="produkt-form">
+    <div class="produkt">
+        <div class="produkt-obrazok"><a href="#"><img src="images/kategorie/363508071_644025744534287_3107374306328214130_n.jpg" alt="Malý smajlík" width="270"
+                                                      height="170"></a></div>
+        <div class="produkt-data">Malý smajlík</div>
+        <div class="produkt-data">1,80 €</div>
+        <div class="produkt-button">
+            <button class="produkt-button">Zobraziť viac</button>
+        </div>
+    </div>
+    <div class="produkt">
+        <div class="produkt-obrazok"><a href="#"><img src="images/najpredavanejsie.jpg" alt="Malý smajlík" width="270"
+                                                      height="170"></a></div>
+        <div class="produkt-data">Malý smajlík</div>
+        <div class="produkt-data">1,80 €</div>
+        <div class="produkt-button">
+            <button class="produkt-button">Zobraziť viac</button>
+        </div>
+    </div>
+</div>
+<div class="podnadpis">
+    <ul>
         <li>Obľúbené kategórie</li>
     </ul>
 </div>
-<div class="oblubene-kategorie-content">
+<div class="maly-produkt-form">
     <ul>
         <li>
             <a href="#">
@@ -163,7 +180,7 @@
         <li>Obľúbené produkty</li>
     </ul>
 </div>
-<div class="oblubene-produkty-content">
+<div class="maly-produkt-form">
     <ul>
         <li>
             <a href="#">
@@ -261,46 +278,22 @@
 </div>
 <div class="produkt-form">
     <div class="produkt">
-        <div class="produkt-obrazok"><a href="#"><img src="images/najpredavanejsie.jpg" alt="Malý smajlík" width="270" height="170"></a></div>
+        <div class="produkt-obrazok"><a href="#"><img src="images/najpredavanejsie.jpg" alt="Malý smajlík" width="270"
+                                                      height="170"></a></div>
         <div class="produkt-data">Malý smajlík</div>
         <div class="produkt-data">1,80 €</div>
-        <div class="produkt-button"><button class="produkt-button">Zobraziť viac</button></div>
+        <div class="produkt-button">
+            <button class="produkt-button">Zobraziť viac</button>
+        </div>
     </div>
     <div class="produkt">
-        <div class="produkt-obrazok"><a href="#"><img src="images/najpredavanejsie.jpg" alt="Malý smajlík" width="270" height="170"></a></div>
+        <div class="produkt-obrazok"><a href="#"><img src="images/najpredavanejsie.jpg" alt="Malý smajlík" width="270"
+                                                      height="170"></a></div>
         <div class="produkt-data">Malý smajlík</div>
         <div class="produkt-data">1,80 €</div>
-        <div class="produkt-button"><button class="produkt-button">Zobraziť viac</button></div>
-    </div>
-    <div class="produkt">
-        <div class="produkt-obrazok"><a href="#"><img src="images/najpredavanejsie.jpg" alt="Malý smajlík" width="270" height="170"></a></div>
-        <div class="produkt-data">Malý smajlík</div>
-        <div class="produkt-data">1,80 €</div>
-        <div class="produkt-button"><button class="produkt-button">Zobraziť viac</button></div>
-    </div>
-    <div class="produkt">
-        <div class="produkt-obrazok"><a href="#"><img src="images/najpredavanejsie.jpg" alt="Malý smajlík" width="270" height="170"></a></div>
-        <div class="produkt-data">Malý smajlík</div>
-        <div class="produkt-data">1,80 €</div>
-        <div class="produkt-button"><button class="produkt-button">Zobraziť viac</button></div>
-    </div>
-    <div class="produkt">
-        <div class="produkt-obrazok"><a href="#"><img src="images/najpredavanejsie.jpg" alt="Malý smajlík" width="270" height="170"></a></div>
-        <div class="produkt-data">Malý smajlík</div>
-        <div class="produkt-data">1,80 €</div>
-        <div class="produkt-button"><button class="produkt-button">Zobraziť viac</button></div>
-    </div>
-    <div class="produkt">
-        <div class="produkt-obrazok"><a href="#"><img src="images/najpredavanejsie.jpg" alt="Malý smajlík" width="270" height="170"></a></div>
-        <div class="produkt-data">Malý smajlík</div>
-        <div class="produkt-data">1,80 €</div>
-        <div class="produkt-button"><button class="produkt-button">Zobraziť viac</button></div>
-    </div>
-    <div class="produkt">
-        <div class="produkt-obrazok"><a href="#"><img src="images/najpredavanejsie.jpg" alt="Malý smajlík" width="270" height="170"></a></div>
-        <div class="produkt-data">Malý smajlík</div>
-        <div class="produkt-data">1,80 €</div>
-        <div class="produkt-button"><button class="produkt-button">Zobraziť viac</button></div>
+        <div class="produkt-button">
+            <button class="produkt-button">Zobraziť viac</button>
+        </div>
     </div>
 </div>
 <div class="footer">
@@ -310,7 +303,7 @@
             <li><a href="doprava.html">Doprava a platba</a></li>
             <li><a href="prihlasenie.html">Prihlásiť sa</a></li>
             <li><a href="vytvorenie-uctu.html">Registrácia</a></li>
-            <li><a>Reklamácie</a></li>
+            <li><a href="reklamacie.html">Reklamácie</a></li>
         </ul>
     </div>
     <div class="footer-info2">
@@ -346,7 +339,7 @@
 ked stlacis na prihlasit sa ikonku tak to zobrazi to pole
 resizable pictures + alt skontrolovat
 pridat v kategorie tu sipku a potom upravit ten blok tak ako na scifier
-najst vhodny font na text v celom projekte
 nakopirovat footer a navbar
 stranku k reklamaciam
+opravit oblubene kategorie/produkty
 -->
