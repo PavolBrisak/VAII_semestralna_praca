@@ -30,5 +30,18 @@
     transition: transform 0.3s;
 }
 
+@media (max-width: 768px) {
+    .doprava-obrazky {
+        display: block;
+    }
 
+    .doprava-obrazky-item {
+        margin: 20px;
+        text-align: center;
+    }
+
+    .doprava-a-platba-body {
+        margin: 0;
+    }
+}
 

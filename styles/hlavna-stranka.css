@@ -237,7 +237,7 @@ body {
 }
 
 .footer-info3 {
-    max-width: 500px;
+    width: 500px;
 }
 
 .footer-info3 p {
@@ -360,7 +360,6 @@ body {
     margin-right: 10px;
 }
 
-
 .uvodne-obrazky-content {
     display: flex;
 }
@@ -424,9 +423,10 @@ body {
     cursor: pointer;
 }
 
-
 .filter-row {
     background-color: #f0f0f0;
+    font-size: 20px;
+
 }
 
 .filter-option {
@@ -436,15 +436,26 @@ body {
 
 
 @media (max-width: 768px) {
+    .navigation-bar-list {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navigation-bar-list li {
+        margin: 12px;
+    }
+
     .uvodne-obrazky-column img {
         display: none;
     }
 
-
-    .benefit-item {
+    .benefit-uvod {
         display: block;
     }
 
+    .produkt-form {
+        justify-content: center;
+    }
 
     .footer-info1,
     .footer-info2,
@@ -454,5 +465,15 @@ body {
         border-bottom: 1px solid white;
     }
 
+    .search .logo img {
+        display: none;
+    }
 
+    .search .logo + * {
+        margin-left: 0;
+    }
+
+    .logo {
+        width: 0;
+    }
 }
