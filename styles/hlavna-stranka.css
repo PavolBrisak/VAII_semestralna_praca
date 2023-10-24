@@ -2,6 +2,7 @@ body {
     font-family: 'Sen', serif;
     margin: 0;
     padding: 0;
+    overflow: inherit;
 }
 
 .header {
@@ -199,23 +200,20 @@ body {
 }
 
 .footer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     padding: 10px;
     color: white;
     background-color: mediumpurple;
     text-align: left;
 }
 
-.footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .footer ul {
     list-style-type: none;
 }
 
-.footer-data {
+.footer .footer-data {
     display: inline-block;
     vertical-align: top;
 }
@@ -228,8 +226,8 @@ body {
     border-right: none;
 }
 
-.footer div:nth-child(1) li:hover:not(:first-child):not(:nth-child(1)),
-.footer div:nth-child(2) li:hover:not(:first-child):not(:nth-child(1)) {
+.footer div:nth-child(1) li:hover:not(:first-child),
+.footer div:nth-child(2) li:hover:not(:first-child) {
     text-decoration: underline;
 }
 
@@ -247,11 +245,7 @@ body {
 }
 
 .footer div:nth-child(3) {
-    width: 500px;
-}
-
-.footer div:nth-child(3) p {
-    word-wrap: break-word;
+    width: 450px;
 }
 
 .footer li:nth-child(1) {
@@ -305,11 +299,14 @@ body {
 
 .uvodne-obrazky-content {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .uvodne-obrazky-column {
     display: flex;
-    flex: 1;
+    flex-direction: column;
+    align-items: center;
     padding: 0;
 }
 
@@ -319,7 +316,6 @@ body {
 
 .uvodne-obrazky-column img {
     border-radius: 10px;
-    display: block;
     margin: 15px;
 }
 
@@ -331,6 +327,8 @@ body {
 .produkt-form {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .produkt {
@@ -369,14 +367,12 @@ body {
 .filter-row {
     background-color: #f0f0f0;
     font-size: 20px;
-
 }
 
 .filter-option {
     display: inline-block;
     margin: 20px;
 }
-
 
 @media (max-width: 768px) {
     .navigation-bar-list {
@@ -404,15 +400,11 @@ body {
         flex-direction: column;
     }
 
-    .footer div {
+    .footer .footer-data {
         flex: 1;
         padding: 20px;
-        text-align: center;
+        text-align: justify;
         border-right: none;
-    }
-
-    .footer div:last-child {
-        border-bottom: none;
     }
 
     .search .logo img {
