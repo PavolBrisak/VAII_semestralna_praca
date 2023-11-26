@@ -16,7 +16,7 @@
             </a>
         </li>
         <li>
-            <a class="header-kontaktujte-nas" href="kontakt.html">
+            <a class="header-kontaktujte-nas" href="{{route('app_kontakt')}}">
                 Kontaktujte nás
             </a>
         </li>
