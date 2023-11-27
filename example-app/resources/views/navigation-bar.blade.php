@@ -21,8 +21,8 @@
         </li>
         <li><a href="#">Výpredaj</a></li>
         <li><a href="#">Najpredávanejšie náušky</a></li>
-        <li><a href="reklamacie.html">Reklamácie</a></li>
-        <li><a href="doprava.html">Doprava a platba</a></li>
-        <li><a class="navigation-bar-list-kontakty" href="kontakt.html">Kontakty</a></li>
+        <li><a href={{route('app_reklamacie')}}>Reklamácie</a></li>
+        <li><a href={{route('app_doprava')}}>Doprava a platba</a></li>
+        <li><a class="navigation-bar-list-kontakty" href={{route('app_kontakt')}}>Kontakty</a></li>
     </ul>
 </div>

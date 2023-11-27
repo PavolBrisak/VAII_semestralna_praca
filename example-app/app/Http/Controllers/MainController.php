@@ -22,4 +22,28 @@ class MainController extends Controller
         return view('kontakt', [
         ]);
     }
+
+    public function doprava(): View
+    {
+        return view('doprava', [
+        ]);
+    }
+
+    public function prihlasenie(): View
+    {
+        return view('prihlasenie', [
+        ]);
+    }
+
+    public function registracia(): View
+    {
+        return view('registracia', [
+        ]);
+    }
+
+    public function reklamacie(): View
+    {
+        return view('reklamacie', [
+        ]);
+    }
 }

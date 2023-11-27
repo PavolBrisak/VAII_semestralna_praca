@@ -2,10 +2,10 @@
     <div class="footer-data">
         <ul>
             <li>O nákupe</li>
-            <li><a href="doprava.html">Doprava a platba</a></li>
-            <li><a href="prihlasenie.html">Prihlásiť sa</a></li>
-            <li><a href="vytvorenie-uctu.html">Registrácia</a></li>
-            <li><a href="reklamacie.html">Reklamácie</a></li>
+            <li><a href="{{route('app_doprava')}}">Doprava a platba</a></li>
+            <li><a href="{{route('app_prihlasenie')}}">Prihlásiť sa</a></li>
+            <li><a href="{{route('app_registracia')}}">Registrácia</a></li>
+            <li><a href="{{route('app_reklamacie')}}">Reklamácie</a></li>
         </ul>
     </div>
     <div class="footer-data">
@@ -13,7 +13,7 @@
             <li>O našom obchode</li>
             <li><a href="#">Výpredaj</a></li>
             <li><a href="#">Kategórie</a></li>
-            <li><a href={{url('kontakt')}}>Kontakty</a></li>
+            <li><a href="{{route('app_kontakt')}}">Kontakty</a></li>
             <li><br></li>
         </ul>
     </div>
@@ -29,7 +29,7 @@
     <div class="footer-data">
         <ul>
             <li>Kontakt</li>
-            <li>V prípade otázok nás prosím kontaktujte cez <a href="kontakt.html">kontaktný formulár</a> <br>alebo nám
+            <li>V prípade otázok nás prosím kontaktujte cez <a href="{{route('app_kontakt')}}">kontaktný formulár</a> <br>alebo nám
                 napíšte na email <strong>sisinkine.nausky@gmail.com</strong></li>
         </ul>
     </div>
