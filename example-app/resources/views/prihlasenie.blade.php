@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{url('styles/hlavna-stranka.css')}}">
     <link rel="stylesheet" href="{{url('styles/prihlasenie.css')}}">
     <link rel="stylesheet" href="{{url('styles/kontakt.css')}}">
+    <script src="{{url('js/form_validation.js')}}"></script>
 </head>
 <body>
 @include('header')
@@ -16,18 +17,18 @@
 <div class="prihlasenie-nadpis">
     <div class="prihlasenie">
         <img src="{{url('images/prihlasenie.png')}}" alt="Náušky">
-        <div class="prihlasenie-form">
+        <form class="prihlasenie-form" onsubmit="return validateFormPrihlasenie()">
             <ul>
                 <li>Prihlásenie</li>
-                <li><label for="email">Email</label>
-                    <input type="text" id="email" name="email"></li>
+                <li><label for="email">Email<span class="form-error" id="form-error-email" hidden>Neplatný email</span></label>
+                    <input type="text" id="email" name="email" onblur="checkEmail()"></li>
                 <li><label for="password">Heslo</label>
                     <input type="password" id="password" name="password"></li>
                 <li><button class="send-button">Prihlásiť sa</button></li>
                 <li><a href="{{route('app_registracia')}}">Nemáte účet? Vytvorte si ho tu</a></li>
-                <li><a href="#">Zabudnuté heslo?</a></li>
+                <li><a href="#">Zabudnuté heslo?</a></li> {{--TODO zabudnute heslo--}}
             </ul>
-        </div>
+        </form>
     </div>
 </div>
 <div class="doplnenie"></div>

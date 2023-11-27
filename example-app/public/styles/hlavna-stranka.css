@@ -374,6 +374,12 @@ body {
     margin: 20px;
 }
 
+.form-error {
+    color: red;
+    font-weight: bold;
+    margin-left: 50px;
+}
+
 @media (max-width: 768px) {
     .navigation-bar-list {
         flex-direction: column;
