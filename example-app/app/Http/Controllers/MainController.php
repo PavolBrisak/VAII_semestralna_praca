@@ -29,12 +29,6 @@ class MainController extends Controller
         ]);
     }
 
-    public function prihlasenie(): View
-    {
-        return view('prihlasenie', [
-        ]);
-    }
-
     public function registracia(): View
     {
         return view('registracia', [

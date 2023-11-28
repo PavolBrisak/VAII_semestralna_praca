@@ -4,7 +4,7 @@ function validateFormKontakt() {
     let email = document.getElementById("email").value;
     let sprava = document.getElementById("sprava").value;
 
-    if (meno == "" || priezvisko == "" || email == "" || sprava == "") {
+    if (meno === "" || priezvisko === "" || email === "" || sprava === "") {
         alert("Prosím vyplňte všetky údaje");
         return false;
     }
@@ -32,7 +32,7 @@ function validateFormPrihlasenie() {
     let email = document.getElementById("email").value;
     let heslo = document.getElementById("password").value;
 
-    if (email == "" || heslo == "") {
+    if (email === "" || heslo === "") {
         alert("Prosím vyplňte všetky údaje");
         return false;
     }
@@ -54,7 +54,7 @@ function validateFormRegistracia() {
     let heslo = document.getElementById("heslo").value;
     let heslo_potvrd = document.getElementById("heslo_potvrd").value;
 
-    if (meno == "" || priezvisko == "" || dic == "" || email == "" || heslo == "" || heslo_potvrd == "") {
+    if (meno === "" || priezvisko === "" || dic === "" || email === "" || heslo === "" || heslo_potvrd === "") {
         alert("Prosím vyplňte všetky údaje");
         return false;
     }
@@ -104,11 +104,7 @@ function checkPriezvisko() {
 function checkEmail() {
     let emailInput = document.getElementById("email").value;
     let emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    if (!emailRegex.test(emailInput)) {
-        document.getElementById("form-error-email").hidden = false;
-    } else {
-        document.getElementById("form-error-email").hidden = true;
-    }
+    document.getElementById("form-error-email").hidden = emailRegex.test(emailInput);
     if (emailInput === "") {
         document.getElementById("form-error-email").hidden = true;
     }

@@ -17,16 +17,26 @@
 <div class="prihlasenie-nadpis">
     <div class="prihlasenie">
         <img src="{{url('images/prihlasenie.png')}}" alt="Náušky">
-        <form class="prihlasenie-form" onsubmit="return validateFormPrihlasenie()">
+        <form class="prihlasenie-form" onsubmit="return validateFormPrihlasenie()" action="{{route('app_prihlasenie')}}" method="post">
+            @csrf
             <ul>
                 <li>Prihlásenie</li>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <li><label for="email">Email<span class="form-error" id="form-error-email" hidden>Neplatný email</span></label>
                     <input type="text" id="email" name="email" onblur="checkEmail()"></li>
                 <li><label for="password">Heslo</label>
                     <input type="password" id="password" name="password"></li>
-                <li><button class="send-button">Prihlásiť sa</button></li>
+                <li><button class="send-button" type="submit">Prihlásiť sa</button></li>
                 <li><a href="{{route('app_registracia')}}">Nemáte účet? Vytvorte si ho tu</a></li>
-                <li><a href="#">Zabudnuté heslo?</a></li> {{--TODO zabudnute heslo--}}
+                <li><a href="#">Zabudnuté heslo?</a></li>
             </ul>
         </form>
     </div>

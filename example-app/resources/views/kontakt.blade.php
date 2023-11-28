@@ -17,7 +17,7 @@
     <form name="kontaktForm" class="kontakt-form" onsubmit="return validateFormKontakt()">
         <ul>
             <li>Kontaktuje nás</li>
-            <li><label for="meno">Meno<span class="form-error" id="form-error-meno" hidden>Meno musí začínať veľkým písmenom</span></label>
+            <li><div class="spolusu"><label for="meno">Meno<span class="form-error" id="form-error-meno" hidden>Meno musí začínať veľkým písmenom</span></label></div>
                 <input type="text" id="meno" name="meno" oninput="checkMeno()"></li>
             <li><label for="priezvisko">Priezvisko<span class="form-error" id="form-error-priezvisko" hidden>Priezvisko musí začínať veľkým písmenom</span></label>
                 <input type="text" id="priezvisko" name="priezvisko" oninput="checkPriezvisko()"></li>
