@@ -30,7 +30,7 @@
                         </ul>
                     </div>
                 @endif
-                <li><label for="email">Email<span class="form-error" id="form-error-email" hidden>Neplatný email</span></label>
+                <li><div class="spolusu"><label for="email">Email</label><span class="form-error" id="form-error-email" hidden>Neplatný email</span></div>
                     <input type="text" id="email" name="email" onblur="checkEmail()"></li>
                 <li><label for="password">Heslo</label>
                     <input type="password" id="password" name="password"></li>

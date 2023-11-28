@@ -17,12 +17,6 @@ class MainController extends Controller
         //kluc je nalavo
     }
 
-    public function kontakt(): View
-    {
-        return view('kontakt', [
-        ]);
-    }
-
     public function doprava(): View
     {
         return view('doprava', [

@@ -22,17 +22,17 @@
                 <li>Vytvorte si účet</li>
 
                 <li>Osobné informácie</li>
-                <li><label for="meno">Meno<span class="form-error" id="form-error-meno" hidden>Meno musí začínať veľkým písmenom</span></label>
+                <li><div class="spolusu"><label for="meno">Meno</label><span class="form-error" id="form-error-meno" hidden>Meno musí začínať veľkým písmenom</span></div>
                     <input type="text" id="meno" name="meno" oninput="checkMeno()"></li>
-                <li><label for="priezvisko">Priezvisko<span class="form-error" id="form-error-priezvisko" hidden>Priezvisko musí začínať veľkým písmenom</span></label>
+                <li><div class="spolusu"><label for="priezvisko">Priezvisko</label><span class="form-error" id="form-error-priezvisko" hidden>Priezvisko musí začínať veľkým písmenom</span></div>
                     <input type="text" id="priezvisko" name="priezvisko" oninput="checkPriezvisko()"></li>
                 <li><label for="dic">DIČ</label>
                     <input type="text" id="dic" name="dic"></li>
 
                 <li>Prihlasovacie informácie</li>
-                <li><label for="email">Email<span class="form-error" id="form-error-email" hidden>Neplatný email</span></label>
+                <li><div class="spolusu"><label for="email">Email</label><span class="form-error" id="form-error-email" hidden>Neplatný email</span></div>
                     <input type="text" id="email" name="email" onblur="checkEmail()"></li>
-                <li><label for="heslo">Heslo<span class="form-error" id="form-error-heslo" hidden>Slabé heslo</span></label>
+                <li><div class="spolusu"><label for="heslo">Heslo</label><span class="form-error" id="form-error-heslo" hidden>Slabé heslo</span></div>
                     <input type="password" id="heslo" name="heslo" oninput="checkHeslo()"></li>
                 <li><label for="heslo_potvrd">Potvrďte heslo</label>
                     <input type="password" id="heslo_potvrd" name="heslo_potvrd"></li>
