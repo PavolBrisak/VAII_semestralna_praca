@@ -50,7 +50,7 @@
     width: 97.5%;
     border: 1px solid #ccc;
     transition: border-color 0.3s;
-    resize: vertical;
+    resize: none;
     max-height: 1%;
 }
 

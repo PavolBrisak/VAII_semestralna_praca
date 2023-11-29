@@ -38,7 +38,7 @@
             <li><div class="spolusu"><label for="email">Email</label><span class="form-error" id="form-error-email" hidden>Neplatný email</span></div>
                 <input type="text" id="email" name="email" onblur="checkEmail()"></li>
             <li><label for="sprava">Správa</label>
-                <textarea id="sprava" name="sprava" onscroll="adjustFormHeight()"></textarea></li>
+                <textarea id="sprava" name="sprava" oninput="changeFormHeightOnTextAreaScroll()"></textarea></li>
             <li>
                 <button class="send-button" type="submit">Odoslať</button>
             </li>
