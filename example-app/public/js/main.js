@@ -1,4 +1,4 @@
-window.onscroll = function (e) {
+window.onscroll = function () {
     let navbarElement = document.getElementById('navigation-bar');
     if (window.scrollY >= navbarElement.offsetTop + navbarElement.offsetHeight) {
         navbarElement.style.position = 'fixed';
@@ -17,3 +17,14 @@ window.onscroll = function (e) {
         });
     }
 };
+
+function showDropdownUser() {
+    let dropdown = document.getElementById('dropdown');
+    let dropdownContent = dropdown.querySelector('.dropdown-content');
+
+    if (dropdownContent.style.display === 'block') {
+        dropdownContent.style.display = 'none';
+    } else {
+        dropdownContent.style.display = 'block';
+    }
+}
