@@ -21,6 +21,12 @@ class KontaktController extends Controller
             'priezvisko' => 'required|regex:/^[A-Z][a-z]*$/',
             'email' => 'required|email',
             'sprava' => 'required',
+        ], [
+            'meno.required' => 'Prosím, zadajte meno',
+            'meno.regex' => 'Prosím, zadajte platné meno',
+            'email.required' => 'Prosím, zadajte e-mailovú adresu',
+            'email.email' => 'Prosím, zadajte platnú e-mailovú adresu',
+            'sprava.required' => 'Prosím, zadajte správu, ktorú chcete odoslať',
         ]);
 
         return redirect()->route('app_index');
