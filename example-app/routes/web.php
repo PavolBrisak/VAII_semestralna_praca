@@ -3,6 +3,7 @@
 use App\Http\Controllers\KontaktController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PrihlasenieController;
+use App\Http\Controllers\RegistraciaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +24,9 @@ Route::post('/kontakt', [KontaktController::class, 'post'])->name('app_kontakt')
 
 Route::get('/doprava', [MainController::class, 'doprava'])->name('app_doprava');
 
-Route::get('/registracia', [MainController::class, 'registracia'])->name('app_registracia');
+Route::get('/registracia', [RegistraciaController::class, 'get'])->name('app_registracia');
+Route::post('/registracia', [RegistraciaController::class, 'post'])->name('app_registracia');
+
 
 Route::get('/reklamacie', [MainController::class, 'reklamacie'])->name('app_reklamacie');
 

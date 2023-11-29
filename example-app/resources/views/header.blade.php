@@ -1,4 +1,4 @@
-<div class="header">
+<div class="header" id="header">
     <ul>
         <li class="header">
             <a class="header-zoznam-zelani" href="#">

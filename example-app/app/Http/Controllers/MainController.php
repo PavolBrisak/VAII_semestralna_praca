@@ -23,12 +23,6 @@ class MainController extends Controller
         ]);
     }
 
-    public function registracia(): View
-    {
-        return view('registracia', [
-        ]);
-    }
-
     public function reklamacie(): View
     {
         return view('reklamacie', [

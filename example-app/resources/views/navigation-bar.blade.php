@@ -1,4 +1,4 @@
-<div class="navigation-bar">
+<div class="navigation-bar" id="navigation-bar">
     <ul class="navigation-bar-list">
         <li>
             <div class="kategorie-dropdown">

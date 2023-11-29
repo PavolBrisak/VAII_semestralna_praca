@@ -8,25 +8,28 @@
     <link rel="stylesheet" href="{{url('styles/hlavna-stranka.css')}}">
     <link rel="stylesheet" href="{{url('styles/kontakt.css')}}">
     <script src="{{url('js/form_validation.js')}}"></script>
+    <script src="{{url('js/kontakt.js')}}"></script>
+    <script src="{{url('js/main.js')}}"></script>
+
 </head>
 <body>
 @include('header')
 @include('search')
 @include('navigation-bar')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="kontakt-nadpis">
     <form name="kontaktForm" class="kontakt-form" onsubmit="return validateFormKontakt()" action="{{route('app_kontakt')}}" method="post">
         @csrf
         <ul>
             <li>Kontaktuje nás</li>
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
             <li><div class="spolusu"><label for="meno">Meno</label><span class="form-error" id="form-error-meno" hidden>Meno musí začínať veľkým písmenom</span></div>
                 <input type="text" id="meno" name="meno" oninput="checkMeno()"></li>
             <li><div class="spolusu"><label for="priezvisko">Priezvisko</label><span class="form-error" id="form-error-priezvisko" hidden>Priezvisko musí začínať veľkým písmenom</span></div>
@@ -34,7 +37,7 @@
             <li><div class="spolusu"><label for="email">Email</label><span class="form-error" id="form-error-email" hidden>Neplatný email</span></div>
                 <input type="text" id="email" name="email" onblur="checkEmail()"></li>
             <li><label for="sprava">Správa</label>
-                <textarea id="sprava" name="sprava"></textarea></li>
+                <textarea id="sprava" name="sprava" ="adjustFormHeight()"></textarea></li>
             <li>
                 <button class="send-button" type="submit">Odoslať</button>
             </li>

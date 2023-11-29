@@ -9,11 +9,21 @@
     <link rel="stylesheet" href="{{url('styles/prihlasenie.css')}}">
     <link rel="stylesheet" href="{{url('styles/kontakt.css')}}">
     <script src="{{url('js/form_validation.js')}}"></script>
+    <script src="{{url('js/main.js')}}"></script>
 </head>
 <body>
 @include('header')
 @include('search')
 @include('navigation-bar')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="prihlasenie-nadpis">
     <div class="prihlasenie">
         <img src="{{url('images/prihlasenie.png')}}" alt="Náušky">
@@ -21,15 +31,6 @@
             @csrf
             <ul>
                 <li>Prihlásenie</li>
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
                 <li><div class="spolusu"><label for="email">Email</label><span class="form-error" id="form-error-email" hidden>Neplatný email</span></div>
                     <input type="text" id="email" name="email" onblur="checkEmail()"></li>
                 <li><label for="password">Heslo</label>

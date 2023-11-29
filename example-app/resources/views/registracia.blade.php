@@ -9,15 +9,26 @@
     <link rel="stylesheet" href="{{url('styles/kontakt.css')}}">
     <link rel="stylesheet" href="{{url('styles/registracia.css')}}">
     <script src="{{url('js/form_validation.js')}}"></script>
+    <script src="{{url('js/main.js')}}"></script>
 </head>
 <body>
 @include('header')
 @include('search')
 @include('navigation-bar')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="vytvorenie-uctu-nadpis">
     <div class="vytvorenie-uctu">
         <img src="{{url('images/vytvorenie-uctu.png')}}" alt="Náušky">
-        <form class="vytvorenie-uctu-form" onsubmit="return validateFormRegistracia()">
+        <form class="vytvorenie-uctu-form" onsubmit="return validateFormRegistracia()" action="{{route('app_registracia')}}" method="post">
+            @csrf
             <ul>
                 <li>Vytvorte si účet</li>
 
