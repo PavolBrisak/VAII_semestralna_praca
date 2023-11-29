@@ -385,6 +385,16 @@ body {
     font-weight: bold;
 }
 
+.alert-danger li {
+    list-style: none;
+    padding: 2px;
+    font-size: 20px;
+}
+
+.alert-danger li:nth-child(1) {
+    font-weight: bold;
+}
+
 @media (max-width: 768px) {
     .navigation-bar-list {
         flex-direction: column;

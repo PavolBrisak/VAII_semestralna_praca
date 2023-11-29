@@ -27,6 +27,6 @@ class RegistraciaController extends Controller
             'heslo.min' => 'Heslo musí mať aspoň 8 znakov',
         ]);
 
-        return redirect()->route('app_index');
+        return redirect()->route('app_ucet');
     }
 }

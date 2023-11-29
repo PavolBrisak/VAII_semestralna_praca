@@ -16,8 +16,9 @@
 @include('search')
 @include('navigation-bar')
 @if ($errors->any())
-    <div class="alert alert-danger">
+    <div class="alert-danger">
         <ul>
+            <li>Došlo ku chybe pri registrácií</li>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach

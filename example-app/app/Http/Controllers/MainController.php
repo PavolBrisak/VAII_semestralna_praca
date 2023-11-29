@@ -28,4 +28,10 @@ class MainController extends Controller
         return view('reklamacie', [
         ]);
     }
+
+    public function ucet(): View
+    {
+        return view('ucet', [
+        ]);
+    }
 }

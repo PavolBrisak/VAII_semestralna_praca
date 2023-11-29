@@ -4,6 +4,7 @@ use App\Http\Controllers\KontaktController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PrihlasenieController;
 use App\Http\Controllers\RegistraciaController;
+use App\Http\Controllers\ZabudnuteHesloController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,5 +34,9 @@ Route::get('/reklamacie', [MainController::class, 'reklamacie'])->name('app_rekl
 Route::get('/prihlasenie', [PrihlasenieController::class, 'get'])->name('app_prihlasenie');
 Route::post('/prihlasenie', [PrihlasenieController::class, 'post'])->name('app_prihlasenie');
 
+Route::get('/moj-ucet', [MainController::class, 'ucet'])->name('app_ucet');
+
+Route::get('/zabudnute-heslo', [ZabudnuteHesloController::class, 'get'])->name('app_zabudnute-heslo');
+Route::post('/zabudnute-heslo', [ZabudnuteHesloController::class, 'post'])->name('app_zabudnute-heslo');
 
 

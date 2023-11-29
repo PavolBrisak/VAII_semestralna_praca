@@ -16,8 +16,9 @@
 @include('search')
 @include('navigation-bar')
 @if ($errors->any())
-    <div class="alert alert-danger">
+    <div class="alert-danger">
         <ul>
+            <li>Došlo ku chybe pri prihlásení sa</li>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
@@ -37,7 +38,7 @@
                     <input type="password" id="password" name="password"></li>
                 <li><button class="send-button" type="submit">Prihlásiť sa</button></li>
                 <li><a href="{{route('app_registracia')}}">Nemáte účet? Vytvorte si ho tu</a></li>
-                <li><a href="#">Zabudnuté heslo?</a></li>
+                <li><a href="{{route('app_zabudnute-heslo')}}">Zabudnuté heslo?</a></li>
             </ul>
         </form>
     </div>
