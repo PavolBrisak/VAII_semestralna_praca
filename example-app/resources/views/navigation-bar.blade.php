@@ -9,7 +9,7 @@
                     <a href="#">Jedlo</a>
                     <a href="#">Pucky</a>
                     <a href="#">Tvary</a>
-                    <a href="vianocne.html">Vianočné</a>
+                    <a href="#">Vianočné</a>
                     <a href="#">Srdiečka</a>
                     <a href="#">Smajlíky</a>
                     <a href="#">Pride</a>

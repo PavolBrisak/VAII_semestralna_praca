@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 
 class PrihlasenieController extends Controller
@@ -18,11 +20,24 @@ class PrihlasenieController extends Controller
     {
         $request->validate([
             'email' => 'required|email',
+            'password' => 'required',
         ], [
             'email.required' => 'Prosím, zadajte e-mailovú adresu',
             'email.email' => 'Prosím, zadajte platnú e-mailovú adresu',
+            'password.required' => 'Prosím, zadajte heslo',
         ]);
 
-        return redirect()->route('app_index');
+        $credentials = [
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
+        ];
+
+        if (Auth::attempt($credentials)) {
+            return redirect()->route('app_ucet');
+        }
+
+        return redirect()->route('app_prihlasenie')
+            ->withInput($request->except('password'))
+            ->withErrors(['nespravne_heslo' => 'Nesprávny e-mail alebo heslo.']);
     }
 }

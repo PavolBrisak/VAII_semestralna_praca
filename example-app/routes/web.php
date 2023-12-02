@@ -4,6 +4,7 @@ use App\Http\Controllers\KontaktController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PrihlasenieController;
 use App\Http\Controllers\RegistraciaController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ZabudnuteHesloController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,5 +39,7 @@ Route::get('/moj-ucet', [MainController::class, 'ucet'])->name('app_ucet');
 
 Route::get('/zabudnute-heslo', [ZabudnuteHesloController::class, 'get'])->name('app_zabudnute-heslo');
 Route::post('/zabudnute-heslo', [ZabudnuteHesloController::class, 'post'])->name('app_zabudnute-heslo');
+
+Route::get('/odhalsit_sa', [UsersController::class, 'odhlasenie'])->name('app_odhlasenie');
 
 
