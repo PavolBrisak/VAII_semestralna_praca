@@ -14,7 +14,7 @@
 @include('search')
 @include('navigation-bar')
 
-<p>Boli ste prihlaseny</p>
+<p>Boli ste prihlaseny ako {{$user->name}}</p>
 
 @include('footer')
 </body>

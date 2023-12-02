@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
 class RegistraciaController extends Controller
@@ -33,6 +35,14 @@ class RegistraciaController extends Controller
             'heslo_potvrd.required' => 'Prosím, zadajte potvrdenie heslo',
             'heslo_potvrd.same' => 'Heslo a potvrdenie hesla sa nezhodujú',
         ]);
+
+        $user = User::create([
+            'name' => $request->input('meno') . ' ' . $request->input('priezvisko'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('heslo')),
+        ]);
+
+        auth()->login($user);
 
         return redirect()->route('app_ucet');
     }

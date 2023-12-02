@@ -7,7 +7,7 @@ window.onscroll = function () {
         navbarElement.style.left = '0';
         let listItems = navbarElement.querySelectorAll('ul li');
         listItems.forEach(item => {
-            item.style.marginTop = '10px';  // Adjust the margin-top value as needed
+            item.style.marginTop = '20px';
         });
     } else {
         navbarElement.style.position = 'static';
