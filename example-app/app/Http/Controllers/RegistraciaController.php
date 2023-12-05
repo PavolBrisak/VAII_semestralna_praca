@@ -23,7 +23,7 @@ class RegistraciaController extends Controller
             'meno' => 'required|string|regex:/^[A-Z][a-z]+$/',
             'priezvisko' => 'required|string|regex:/^[A-Z][a-z]+$/',
             'dic' => 'nullable|string',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email',
             'heslo' => 'required|string|min:8',
             'heslo_potvrd' => 'required|same:heslo',
         ], [
@@ -31,6 +31,7 @@ class RegistraciaController extends Controller
             'meno.regex' => 'Prosím, zadajte platné meno',
             'email.required' => 'Prosím, zadajte e-mailovú adresu',
             'email.email' => 'Prosím, zadajte platnú e-mailovú adresu',
+            'email.unique' => 'Tento email už niekto používa',
             'heslo.required' => 'Prosím, zadajte heslo',
             'heslo.min' => 'Heslo musí mať aspoň 8 znakov',
             'heslo_potvrd.required' => 'Prosím, zadajte potvrdenie heslo',
