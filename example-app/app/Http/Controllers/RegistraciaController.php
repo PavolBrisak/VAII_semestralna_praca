@@ -39,7 +39,8 @@ class RegistraciaController extends Controller
         ]);
 
         $user = User::create([
-            'name' => $request->input('meno') . ' ' . $request->input('priezvisko'),
+            'name' => $request->input('meno'),
+            'surname' => $request->input('priezvisko'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('heslo')),
         ]);

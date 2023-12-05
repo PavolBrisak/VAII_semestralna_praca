@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('objednavkas', function (Blueprint $table) {
+        Schema::create('produkt', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('customer_id');
-            $table->foreign('customer_id')->references('id')->on('users');;
-            $table->decimal('total_amount', 10);
-            $table->string('status', 20)->default('Vybavujeme');
+            $table->string('name');
+            $table->decimal('price', 10);
+            $table->string('category');
+            $table->unsignedInteger('number_of_sold')->default(0);
+            $table->boolean('is_discounted')->default(false);
+            $table->decimal('discount_price', 10)->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('objednavkas');
+        Schema::dropIfExists('produkt');
     }
 };
