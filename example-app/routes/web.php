@@ -40,6 +40,12 @@ Route::get('/moj-ucet', [MainController::class, 'ucet'])->name('app_ucet');
 Route::get('/zabudnute-heslo', [ZabudnuteHesloController::class, 'get'])->name('app_zabudnute-heslo');
 Route::post('/zabudnute-heslo', [ZabudnuteHesloController::class, 'post'])->name('app_zabudnute-heslo');
 
+Route::resource('users', 'UsersController');
 Route::get('/odhalsit_sa', [UsersController::class, 'odhlasenie'])->name('app_odhlasenie');
 
+Route::get('/zmena-mena', [UsersController::class, 'zmena_mena_index'])->name('app_zmena_mena');
+Route::post('/zmena-mena', [UsersController::class, 'zmena_mena'])->name('app_zmena_mena');
+
+Route::get('/zmena-hesla', [UsersController::class, 'zmena_hesla_index'])->name('app_zmena_hesla');
+Route::post('/zmena-hesla', [UsersController::class, 'zmena_hesla'])->name('app_zmena_hesla');
 

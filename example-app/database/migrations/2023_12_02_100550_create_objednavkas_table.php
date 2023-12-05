@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('customer_id');
             $table->decimal('total_amount', 10);
-            $table->string('status', 20)->default('pending');
+            $table->string('status', 20)->default('Vybavujeme');
             $table->timestamps();
         });
     }

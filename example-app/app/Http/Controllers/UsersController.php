@@ -2,71 +2,73 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class UsersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function odhlasenie(): RedirectResponse
     {
-        //
-    }
-
-    public function odhlasenie() {
         Auth::logout();
-
         return redirect()->route('app_index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function update(Request $request, string $id): RedirectResponse
     {
-        //
+        $user = User::findOrFail($id);
+        $user->update([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+        ]);
+        return redirect()->route('app_index');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function zmena_mena_index(): View
     {
-        //
+        return view('zmena-mena');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function zmena_mena(Request $request): View
     {
-        //
+        $user = Auth::user();
+
+        $request->validate([
+            'meno' => 'required',
+        ]);
+
+        $user->update([
+            'name' => $request->input('meno'),
+        ]);
+
+        return view('ucet', compact('user'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function zmena_hesla_index(): View
     {
-        //
+        return view('zmena-hesla');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function zmena_hesla(Request $request): View
     {
-        //
-    }
+        $user = Auth::user();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $request->validate([
+            'heslo' => 'required|string|min:8',
+            'heslo_potvrd' => 'required|string|same:heslo',
+        ], [
+            'heslo.required' => 'Prosím, zadajte heslo',
+            'heslo.min' => 'Heslo musí mať aspoň 8 znakov',
+            'heslo_potvrd.required' => 'Prosím, zadajte potvrdenie heslo',
+            'heslo_potvrd.same' => 'Heslo a potvrdenie hesla sa nezhodujú',
+        ]);
+
+        $user->update([
+            'password' => $request->input('heslo'),
+        ]);
+
+        return view('ucet', compact('user'));
     }
 }

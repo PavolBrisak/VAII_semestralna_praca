@@ -83,6 +83,15 @@ function validateFormRegistracia() {
     return true;
 }
 
+function validateFormZmenaMena() {
+
+}
+
+function validateFormZmenaHesla() {
+
+}
+
+
 function checkMeno() {
     let menoInput = document.getElementById("meno").value;
     let firstLetter = menoInput.charAt(0);

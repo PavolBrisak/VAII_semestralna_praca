@@ -3,9 +3,13 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -43,4 +47,16 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public function getUsers(): Collection
+    {
+        return User::all();
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function getUser(): User
+    {
+        return $this;
+    }
 }

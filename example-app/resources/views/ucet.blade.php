@@ -15,6 +15,8 @@
 @include('navigation-bar')
 
 <p>Boli ste prihlaseny ako {{$user->name}}</p>
+<a href="{{route('app_zmena_mena')}}">Zmenit meno</a>
+<a href="{{route('app_zmena_hesla')}}">Zmenit si heslo</a>
 
 @include('footer')
 </body>
