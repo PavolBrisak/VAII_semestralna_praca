@@ -10,8 +10,7 @@ class KontaktController extends Controller
 {
     public function get(): View
     {
-        return view('kontakt', [
-        ]);
+        return view('kontakt');
     }
 
     public function post(Request $request): RedirectResponse

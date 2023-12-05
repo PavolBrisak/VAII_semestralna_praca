@@ -48,9 +48,9 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function getUsers(): Collection
+    public function getName(): string
     {
-        return User::all();
+        return $this->name;
     }
 
     /**

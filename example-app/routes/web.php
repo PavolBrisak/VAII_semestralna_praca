@@ -3,6 +3,7 @@
 use App\Http\Controllers\KontaktController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PrihlasenieController;
+use App\Http\Controllers\ProduktController;
 use App\Http\Controllers\RegistraciaController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ZabudnuteHesloController;
@@ -49,3 +50,4 @@ Route::post('/zmena-mena', [UsersController::class, 'zmena_mena'])->name('app_zm
 Route::get('/zmena-hesla', [UsersController::class, 'zmena_hesla_index'])->name('app_zmena_hesla');
 Route::post('/zmena-hesla', [UsersController::class, 'zmena_hesla'])->name('app_zmena_hesla');
 
+Route::get('/vlozit-produkt', [ProduktController::class, 'vlozit_produkt_index'])->name('app_vlozit_produkt');

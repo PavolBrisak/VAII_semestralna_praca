@@ -135,6 +135,10 @@ body {
     font-size: 20px;
 }
 
+.navigation-bar-list-admin {
+    margin-left: auto;
+}
+
 .navigation-bar-list a:hover {
     color: purple;
     text-decoration: underline;

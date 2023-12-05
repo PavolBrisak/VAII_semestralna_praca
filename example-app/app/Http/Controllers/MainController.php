@@ -15,19 +15,16 @@ class MainController extends Controller
         return view('welcome', [
             'kluc' => $pozdrav
         ]);
-        //kluc je nalavo
     }
 
     public function doprava(): View
     {
-        return view('doprava', [
-        ]);
+        return view('doprava');
     }
 
     public function reklamacie(): View
     {
-        return view('reklamacie', [
-        ]);
+        return view('reklamacie');
     }
 
     public function ucet(): View
