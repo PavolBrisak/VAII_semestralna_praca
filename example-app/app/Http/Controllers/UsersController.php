@@ -16,16 +16,6 @@ class UsersController extends Controller
         return redirect()->route('app_index');
     }
 
-    public function update(Request $request, string $id): RedirectResponse
-    {
-        $user = User::findOrFail($id);
-        $user->update([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-        ]);
-        return redirect()->route('app_index');
-    }
-
     public function zmena_mena_index(): View
     {
         return view('zmena-mena');

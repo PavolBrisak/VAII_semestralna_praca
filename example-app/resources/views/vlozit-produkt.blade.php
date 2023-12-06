@@ -10,7 +10,6 @@
     <script src="{{url('js/form_validation.js')}}"></script>
     <script src="{{url('js/kontakt.js')}}"></script>
     <script src="{{url('js/main.js')}}"></script>
-
 </head>
 <body>
 @include('header')
@@ -27,18 +26,27 @@
     </div>
 @endif
 <div class="kontakt-nadpis">
-    <form name="kontaktForm" class="kontakt-form" onsubmit="return validateFormKontakt()" action="{{route('app_kontakt')}}" method="post">
+    <form name="kontaktForm" class="kontakt-form" onsubmit="return validateFormKontakt()" action="{{ route('app_kontakt') }}" method="post" enctype="multipart/form-data">
         @csrf
         <ul>
             <li>Vytvorte nový produkt</li>
-            <li><div class="spolusu"><label for="meno">Meno</label><span class="form-error" id="form-error-meno" hidden>Meno musí začínať veľkým písmenom</span></div>
-                <input type="text" id="meno" name="meno" oninput="checkMeno()"></li>
-            <li><div class="spolusu"><label for="priezvisko">Priezvisko</label><span class="form-error" id="form-error-priezvisko" hidden>Priezvisko musí začínať veľkým písmenom</span></div>
-                <input type="text" id="priezvisko" name="priezvisko" oninput="checkPriezvisko()"></li>
-            <li><div class="spolusu"><label for="email">Email</label><span class="form-error" id="form-error-email" hidden>Neplatný email</span></div>
-                <input type="text" id="email" name="email" onblur="checkEmail()"></li>
-            <li><label for="sprava">Správa</label>
-                <textarea id="sprava" name="sprava" oninput="changeFormHeightOnTextAreaScroll()"></textarea></li>
+            <li>
+                <label for="name">Názov produktu</label>
+                <input type="text" id="name" name="name" required>
+            </li>
+            <li>
+                <label for="price">Cena</label>
+                <input type="text" id="price" name="price" required>
+            </li>
+            <li>
+                <label for="category">Kategória</label>
+                <input type="text" id="category" name="category" required>
+            </li>
+            <li>
+                <label for="picture">Obrázok</label>
+                <input type="file" id="picture" name="picture">
+            </li>
+
             <li>
                 <button class="send-button" type="submit">Odoslať</button>
             </li>
