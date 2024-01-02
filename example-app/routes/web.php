@@ -51,3 +51,4 @@ Route::get('/zmena-hesla', [UsersController::class, 'zmena_hesla_index'])->name(
 Route::post('/zmena-hesla', [UsersController::class, 'zmena_hesla'])->name('app_zmena_hesla');
 
 Route::get('/vlozit-produkt', [ProduktController::class, 'vlozit_produkt_index'])->name('app_vlozit_produkt');
+Route::get('/kosik', [MainController::class, 'kosik'])->name('app_kosik');

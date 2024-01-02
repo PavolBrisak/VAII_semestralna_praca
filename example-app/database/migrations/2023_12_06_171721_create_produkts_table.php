@@ -14,12 +14,14 @@ return new class extends Migration
         Schema::create('produkts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->decimal('price', 10);
+            $table->string('description');
             $table->string('category');
+            $table->longBlob('picture');
+            $table->decimal('price', 10);
+            $table->integer('stock');
             $table->unsignedInteger('number_of_sold')->default(0);
             $table->boolean('is_discounted')->default(false);
             $table->decimal('discount_price', 10)->nullable();
-            $table->string('picture');
             $table->timestamps();
         });
     }

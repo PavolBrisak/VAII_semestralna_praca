@@ -53,6 +53,16 @@ class User extends Authenticatable
         return $this->name;
     }
 
+    public function getSurname(): string
+    {
+        return $this->surname;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
     /**
      * Display the specified resource.
      */

@@ -34,4 +34,9 @@ class MainController extends Controller
             'user' => $user
         ]);
     }
+
+    public function kosik(): View
+    {
+        return view('kosik');
+    }
 }

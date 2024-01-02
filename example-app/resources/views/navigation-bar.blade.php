@@ -25,7 +25,7 @@
         <li><a href={{route('app_doprava')}}>Doprava a platba</a></li>
         <li><a href={{route('app_kontakt')}}>Kontakty</a></li>
         @auth
-            @if(auth()->user()->getName() === 'Admin')
+            @if(auth()->user()->getEmail() == 'admin@gmail.com')
                 <li class="navigation-bar-list-admin"><a class="navigation-bar-list-admin" href="{{route('app_vlozit_produkt') }}">Vložiť produkt</a></li>
             @endif
         @endauth

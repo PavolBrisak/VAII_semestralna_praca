@@ -17,4 +17,6 @@ class Objednavka extends Model
         'total_amount',
         'status',
     ];
+
+
 }

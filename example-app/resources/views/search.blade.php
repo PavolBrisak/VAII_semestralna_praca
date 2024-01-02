@@ -15,5 +15,5 @@
             @endguest
         </div>
     </div>
-    <a href="#" class="cart-logo"><i class="bi bi-cart"></i></a>
+    <a href="{{ route('app_kosik') }}" class="cart-logo"><i class="bi bi-cart"></i></a>
 </div>
