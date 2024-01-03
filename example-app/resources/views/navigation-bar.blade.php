@@ -5,17 +5,17 @@
                 <a href="#"><i class="bi bi-bookmark"></i>
                     Kategórie</a>
                 <div class="kategorie-dropdown-content">
-                    <a href="#">Kvetinky</a>
-                    <a href="#">Jedlo</a>
-                    <a href="#">Pucky</a>
-                    <a href="#">Tvary</a>
-                    <a href="#">Vianočné</a>
-                    <a href="#">Srdiečka</a>
-                    <a href="#">Smajlíky</a>
-                    <a href="#">Pride</a>
-                    <a href="#">Kamienky</a>
-                    <a href="#">Memes</a>
-                    <a href="#">Ostatné</a>
+                    <a href="{{route('app_kategoria', ['kategoria' => 'kvetinky'])}}">Kvetinky</a>
+                    <a href="{{route('app_kategoria', ['kategoria' => 'jedlo'])}}">Jedlo</a>
+                    <a href="{{route('app_kategoria', ['kategoria' => 'pucky'])}}">Pucky</a>
+                    <a href="{{route('app_kategoria', ['kategoria' => 'tvary'])}}">Tvary</a>
+                    <a href="{{route('app_kategoria', ['kategoria' => 'vianocne'])}}">Vianočné</a>
+                    <a href="{{route('app_kategoria', ['kategoria' => 'srdiecka'])}}">Srdiečka</a>
+                    <a href="{{route('app_kategoria', ['kategoria' => 'smajliky'])}}">Smajlíky</a>
+                    <a href="{{route('app_kategoria', ['kategoria' => 'pride'])}}">Pride</a>
+                    <a href="{{route('app_kategoria', ['kategoria' => 'kamienky'])}}">Kamienky</a>
+                    <a href="{{route('app_kategoria', ['kategoria' => 'memes'])}}">Memes</a>
+                    <a href="{{route('app_kategoria', ['kategoria' => 'ostatne'])}}">Ostatné</a>
                 </div>
             </div>
         </li>

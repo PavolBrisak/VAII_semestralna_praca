@@ -12,16 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('produkts', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('description');
-            $table->string('category');
-            $table->longBlob('picture');
-            $table->decimal('price', 10);
-            $table->integer('stock');
-            $table->unsignedInteger('number_of_sold')->default(0);
-            $table->boolean('is_discounted')->default(false);
-            $table->decimal('discount_price', 10)->nullable();
+            $table->id()->autoIncrement();
+            $table->string('nazov');
+            $table->string('popis');
+            $table->string('kategoria');
+            $table->binary('obrazok');
+            $table->decimal('cena', 10);
+            $table->integer('na_sklade')->default(0);
+            $table->unsignedInteger('pocet_predanych')->default(0);
+            $table->boolean('je_v_zlave')->default(false);
+            $table->decimal('cena_zlava', 10)->nullable();
             $table->timestamps();
         });
     }

@@ -50,5 +50,9 @@ Route::post('/zmena-mena', [UsersController::class, 'zmena_mena'])->name('app_zm
 Route::get('/zmena-hesla', [UsersController::class, 'zmena_hesla_index'])->name('app_zmena_hesla');
 Route::post('/zmena-hesla', [UsersController::class, 'zmena_hesla'])->name('app_zmena_hesla');
 
-Route::get('/vlozit-produkt', [ProduktController::class, 'vlozit_produkt_index'])->name('app_vlozit_produkt');
+Route::get('/vlozit-produkt', [ProduktController::class, 'vlozit_produkt'])->name('app_vlozit_produkt');
+Route::post('/vlozit-produkt', [ProduktController::class, 'vlozit_produkt_index'])->name('app_vlozit_produkt');
+Route::get('/produkt/id={id}', [ProduktController::class, 'produkt'])->name('app_produkt');
 Route::get('/kosik', [MainController::class, 'kosik'])->name('app_kosik');
+
+Route::get('/kategorie/{kategoria}', [ProduktController::class, 'kategoria'])->name('app_kategoria');

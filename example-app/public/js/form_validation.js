@@ -150,3 +150,33 @@ function checkHeslo() {
         errorSpan.hidden = true;
     }
 }
+
+function validateFormVlozirProdukt() {
+    let nazov = document.getElementById("name").value;
+    let cena = document.getElementById("price").value;
+    let category = document.getElementById("category").value;
+    let popis = document.getElementById("description").value;
+    let obrazok = document.getElementById("picture").value;
+
+    if (nazov === "" || cena === "" || popis === "" || obrazok === "") {
+        alert("Prosím vyplňte všetky údaje");
+        return false;
+    }
+
+    if (!/^[A-Z]/.test(nazov)) {
+        alert("Názov musí začínať veľkým písmenom");
+        return false;
+    }
+
+    if (!/^[0-9]/.test(cena)) {
+        alert("Cena musí byť číslo");
+        return false;
+    }
+
+    if (category === "") {
+        alert("Vyberte kategóriu");
+        return false;
+    }
+
+    return true;
+}

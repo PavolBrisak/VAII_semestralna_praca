@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakt</title>
+    <title>Vložiť produkt</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{url('styles/hlavna-stranka.css')}}">
     <link rel="stylesheet" href="{{url('styles/kontakt.css')}}">
@@ -26,7 +26,7 @@
     </div>
 @endif
 <div class="kontakt-nadpis">
-    <form name="kontaktForm" class="kontakt-form" onsubmit="return validateFormKontakt()" action="{{ route('app_kontakt') }}" method="post" enctype="multipart/form-data">
+    <form name="kontaktForm" class="kontakt-form" onsubmit="return validateFormVlozirProdukt()" action="{{ route('app_vlozit_produkt') }}" method="post" enctype="multipart/form-data">
         @csrf
         <ul>
             <li>Vytvorte nový produkt</li>
@@ -44,9 +44,11 @@
             </li>
             <li>
                 <label for="picture">Obrázok</label>
-                <input type="file" id="picture" name="picture">
+                <input type="file" id="picture" name="picture" required>
             </li>
-
+            <li>
+                <label for="description">Popis</label>
+                <input type="text" id="description" name="description" required>
             <li>
                 <button class="send-button" type="submit">Odoslať</button>
             </li>
