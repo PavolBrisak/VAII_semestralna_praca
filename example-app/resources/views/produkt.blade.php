@@ -15,7 +15,29 @@
 @include('header')
 @include('search')
 @include('navigation-bar')
-<p> {{$produkt->nazov}} </p>
+<div class="produkt-page">
+    <div class="produkt-page-image">
+        <img src="{{url('storage/'.$produkt->obrazok)}}" alt="{{$produkt->nazov}}" width="270" height="170">
+    </div>
+    <div class="produkt-page-data">
+        <div class="produkt-page-data-name">
+            <p> {{$produkt->nazov}} </p>
+        </div>
+        <div class="produkt-page-data-price">
+            @if ($produkt->zlava)
+                <p> <s>{{$produkt->cena}} €</s> {{$produkt->cena - $produkt->zlava}} €</p>
+            @else
+                <p> {{$produkt->cena}} €</p>
+            @endif
+        </div>
+        <div class="produkt-page-data-description">
+            <p> {{$produkt->popis}} </p>
+        </div>
+        <div class="produkt-page-data-button">
+            <button class="produkt-page-data-button">Pridať do košíka</button>
+        </div>
+    </div>
+</div>
 @include('footer')
 </body>
 </html>
