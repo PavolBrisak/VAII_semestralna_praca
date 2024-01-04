@@ -15,6 +15,7 @@ class Produkt extends Model
         'cena',
         'kategoria',
         'obrazok',
+        'na_sklade',
     ];
 
     public function getNazov(): string

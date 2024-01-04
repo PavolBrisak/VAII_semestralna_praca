@@ -2,7 +2,7 @@
     <ul class="navigation-bar-list">
         <li>
             <div class="kategorie-dropdown">
-                <a href="#"><i class="bi bi-bookmark"></i>
+                <a><i class="bi bi-bookmark"></i>
                     Kategórie</a>
                 <div class="kategorie-dropdown-content">
                     <a href="{{route('app_kategoria', ['kategoria' => 'kvetinky'])}}">Kvetinky</a>
@@ -19,8 +19,8 @@
                 </div>
             </div>
         </li>
-        <li><a href="#">Výpredaj</a></li>
-        <li><a href="#">Najpredávanejšie náušky</a></li>
+        <li><a href="{{route('app_vypredaj')}}">Výpredaj</a></li>
+        <li><a href="{{route('app_najpredavanejsie')}}">Najpredávanejšie náušky</a></li>
         <li><a href={{route('app_reklamacie')}}>Reklamácie</a></li>
         <li><a href={{route('app_doprava')}}>Doprava a platba</a></li>
         <li><a href={{route('app_kontakt')}}>Kontakty</a></li>

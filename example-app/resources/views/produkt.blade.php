@@ -30,11 +30,14 @@
                 <p> {{$produkt->cena}} €</p>
             @endif
         </div>
+        <div class="produkt-page-data-naSklade">
+            <p> Na sklade: {{$produkt->na_sklade}} ks </p>
+        </div>
         <div class="produkt-page-data-description">
             <p> {{$produkt->popis}} </p>
         </div>
         <div class="produkt-page-data-button">
-            <button class="produkt-page-data-button">Pridať do košíka</button>
+            <button class="produkt-page-data-button"><a href="{{ route('app_kosik', ['id' => $produkt->id]) }}">Pridať do košíka</a></button>
         </div>
     </div>
 </div>

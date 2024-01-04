@@ -56,3 +56,5 @@ Route::get('/produkt/id={id}', [ProduktController::class, 'produkt'])->name('app
 Route::get('/kosik', [MainController::class, 'kosik'])->name('app_kosik');
 
 Route::get('/kategorie/{kategoria}', [ProduktController::class, 'kategoria'])->name('app_kategoria');
+Route::get('/vypredaj', [ProduktController::class, 'vypredaj'])->name('app_vypredaj');
+Route::get('najpredavanejsie', [ProduktController::class, 'najpredavanejsie'])->name('app_najpredavanejsie');

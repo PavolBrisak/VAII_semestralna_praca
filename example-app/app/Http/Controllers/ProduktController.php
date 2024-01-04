@@ -62,4 +62,21 @@ class ProduktController extends Controller
             'produkty' => $produkty,
         ]);
     }
+
+    public function vypredaj(): View
+    {
+        $produkty = Produkt::where('je_v_zlave', true)->get();
+
+        return view('vypredaj', [
+            'produkty' => $produkty,
+        ]);
+    }
+
+    public function najpredavanejsie(): View
+    {
+        $produkty = Produkt::orderBy('pocet_predanych', 'desc')->take(20)->get();
+        return view('najpredavanejsie', [
+            'produkty' => $produkty,
+        ]);
+    }
 }

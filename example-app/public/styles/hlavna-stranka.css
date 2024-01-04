@@ -442,19 +442,42 @@ body {
     margin-bottom: 10px;
 }
 
+.produkt-page-data-naSklade {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
 .produkt-page-data-description {
     font-size: 20px;
     margin-bottom: 10px;
 }
 
 .produkt-page-data-button {
-    margin-bottom: 10px;
     background-color: purple;
     color: white;
     border: none;
     border-radius: 10px;
     padding: 5px 5px;
     cursor: pointer;
+}
+
+.produkt-page-data-button a {
+    text-decoration: none;
+    color: white;
+}
+
+.nadpis {
+    margin: 0;
+    padding: 15px;
+    height: 126px;
+    background-color: mediumpurple;
+}
+
+.nadpis p {
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    color: white;
 }
 
 @media (max-width: 768px) {
