@@ -63,3 +63,4 @@ Route::get('/vypredaj', [ProduktController::class, 'vypredaj'])->name('app_vypre
 Route::get('najpredavanejsie', [ProduktController::class, 'najpredavanejsie'])->name('app_najpredavanejsie');
 
 Route::get('/vytvor-objednavku', [ObjednavkaController::class, 'vytvor_objednavku'])->name('app_vytvor_objednavku');
+Route::get('/objednavka/{id}', [ObjednavkaController::class, 'objednavka_detail'])->name('app_objednavka_detail');
