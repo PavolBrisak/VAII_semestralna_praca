@@ -16,7 +16,25 @@
 @include('header')
 @include('search')
 @include('navigation-bar')
-<p> Kosik </p>
+<div class="nadpis">
+    <p>Košík</p>
+</div>
+<div class="cart-container">
+    @if($cartItems->count() > 0)
+        @foreach($cartItems as $cartItem)
+            <div>
+                <p>Názov produktu : {{ $cartItem->nazov }}</p>
+                <p>Počet kusov : {{ $cartItem->mnozstvo }}</p>
+                <p>Celková cena : {{ $cartItem->cena * $cartItem->mnozstvo }} €</p>
+            </div>
+        @endforeach
+        <div class="cart-container-button">
+            <button class="cart-container-button"><a href="{{ route('app_vytvor_objednavku') }}">Objednať</a></button>
+        </div>
+    @else
+        <p>Váš košík je prázdny.</p>
+    @endif
+</div>
 @include('footer')
 </body>
 </html>

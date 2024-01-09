@@ -17,29 +17,4 @@ class Produkt extends Model
         'obrazok',
         'na_sklade',
     ];
-
-    public function getNazov(): string
-    {
-        return $this->nazov;
-    }
-
-    public function getPopis(): string
-    {
-        return $this->popis;
-    }
-
-    public function getCena(): float
-    {
-        return $this->cena;
-    }
-
-    public function getKategoria(): string
-    {
-        return $this->kategoria;
-    }
-
-    public function getObrazok(): string
-    {
-        return $this->obrazok;
-    }
 }

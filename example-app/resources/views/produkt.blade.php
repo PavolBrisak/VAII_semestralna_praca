@@ -37,7 +37,7 @@
             <p> {{$produkt->popis}} </p>
         </div>
         <div class="produkt-page-data-button">
-            <button class="produkt-page-data-button"><a href="{{ route('app_kosik', ['id' => $produkt->id]) }}">Pridať do košíka</a></button>
+            <button class="produkt-page-data-button"><a href="{{ route('app_pridaj_do_kosika', ['id' => $produkt->id]) }}">Pridať do košíka</a></button>
         </div>
     </div>
 </div>

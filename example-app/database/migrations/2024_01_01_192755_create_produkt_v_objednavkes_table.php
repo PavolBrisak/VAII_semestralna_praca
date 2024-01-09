@@ -12,7 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('produkt_v_objednavkes', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
+            $table->foreign('objednavka_id')->references('id')->on('objednavkas');
+            $table->unsignedBigInteger('objednavka_id');
+            $table->string('nazov');
+            $table->integer('mnozstvo');
+            $table->decimal('cena', 10);
             $table->timestamps();
         });
     }

@@ -48,6 +48,16 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public function kosik()
+    {
+        return $this->hasMany(Produkt_v_kosiku::class, 'user_id');
+    }
+
+    public function objednavka()
+    {
+        return $this->hasMany(Objednavka::class);
+    }
+
     public function getName(): string
     {
         return $this->name;
@@ -61,13 +71,5 @@ class User extends Authenticatable
     public function getEmail(): string
     {
         return $this->email;
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function getUser(): User
-    {
-        return $this;
     }
 }

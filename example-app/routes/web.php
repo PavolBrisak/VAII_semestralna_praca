@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\KontaktController;
+use App\Http\Controllers\KosikController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\ObjednavkaController;
 use App\Http\Controllers\PrihlasenieController;
 use App\Http\Controllers\ProduktController;
 use App\Http\Controllers\RegistraciaController;
@@ -42,7 +44,7 @@ Route::get('/zabudnute-heslo', [ZabudnuteHesloController::class, 'get'])->name('
 Route::post('/zabudnute-heslo', [ZabudnuteHesloController::class, 'post'])->name('app_zabudnute-heslo');
 
 Route::resource('users', 'UsersController');
-Route::get('/odhalsit_sa', [UsersController::class, 'odhlasenie'])->name('app_odhlasenie');
+Route::get('/odhlasit_sa', [UsersController::class, 'odhlasenie'])->name('app_odhlasenie');
 
 Route::get('/zmena-mena', [UsersController::class, 'zmena_mena_index'])->name('app_zmena_mena');
 Route::post('/zmena-mena', [UsersController::class, 'zmena_mena'])->name('app_zmena_mena');
@@ -53,8 +55,11 @@ Route::post('/zmena-hesla', [UsersController::class, 'zmena_hesla'])->name('app_
 Route::get('/vlozit-produkt', [ProduktController::class, 'vlozit_produkt'])->name('app_vlozit_produkt');
 Route::post('/vlozit-produkt', [ProduktController::class, 'vlozit_produkt_index'])->name('app_vlozit_produkt');
 Route::get('/produkt/id={id}', [ProduktController::class, 'produkt'])->name('app_produkt');
-Route::get('/kosik', [MainController::class, 'kosik'])->name('app_kosik');
+Route::get('/pridat-do-kosika/{id}', [KosikController::class, 'pridat_do_kosika'])->name('app_pridaj_do_kosika');
+Route::get('/kosik', [KosikController::class, 'kosik'])->name('app_kosik');
 
 Route::get('/kategorie/{kategoria}', [ProduktController::class, 'kategoria'])->name('app_kategoria');
 Route::get('/vypredaj', [ProduktController::class, 'vypredaj'])->name('app_vypredaj');
 Route::get('najpredavanejsie', [ProduktController::class, 'najpredavanejsie'])->name('app_najpredavanejsie');
+
+Route::get('/vytvor-objednavku', [ObjednavkaController::class, 'vytvor_objednavku'])->name('app_vytvor_objednavku');
