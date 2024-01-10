@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\KontaktController;
 use App\Http\Controllers\KosikController;
 use App\Http\Controllers\MainController;
@@ -55,6 +56,7 @@ Route::post('/zmena-hesla', [UsersController::class, 'zmena_hesla'])->name('app_
 Route::get('/vlozit-produkt', [ProduktController::class, 'vlozit_produkt'])->name('app_vlozit_produkt');
 Route::post('/vlozit-produkt', [ProduktController::class, 'vlozit_produkt_index'])->name('app_vlozit_produkt');
 Route::get('/produkt/id={id}', [ProduktController::class, 'produkt'])->name('app_produkt');
+Route::post('/ajax/refreshNaSklade', [AjaxController::class, 'refreshNaSklade'])->name('app_ajax_refreshNaSklade');
 Route::get('/pridat-do-kosika/{id}', [KosikController::class, 'pridat_do_kosika'])->name('app_pridaj_do_kosika');
 Route::get('/kosik', [KosikController::class, 'kosik'])->name('app_kosik');
 

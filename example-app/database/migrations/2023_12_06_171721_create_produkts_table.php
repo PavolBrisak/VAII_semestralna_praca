@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('kategoria');
             $table->binary('obrazok');
             $table->decimal('cena', 10);
-            $table->integer('na_sklade')->default(0);
+            $table->integer('na_sklade')->default(5);
             $table->unsignedInteger('pocet_predanych')->default(0);
             $table->boolean('je_v_zlave')->default(false);
             $table->decimal('cena_zlava', 10)->nullable();
