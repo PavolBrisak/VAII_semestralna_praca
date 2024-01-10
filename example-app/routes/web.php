@@ -52,6 +52,8 @@ Route::post('/zmena-mena', [UsersController::class, 'zmena_mena'])->name('app_zm
 
 Route::get('/zmena-hesla', [UsersController::class, 'zmena_hesla_index'])->name('app_zmena_hesla');
 Route::post('/zmena-hesla', [UsersController::class, 'zmena_hesla'])->name('app_zmena_hesla');
+Route::get('/zrusit-ucet-index', [UsersController::class, 'zrusit_ucet_index'])->name('app_zrusit_ucet_index');
+Route::post('/zrusit-ucet', [UsersController::class, 'zrusit_ucet'])->name('app_zrusit_ucet');
 
 Route::get('/vlozit-produkt', [ProduktController::class, 'vlozit_produkt'])->name('app_vlozit_produkt');
 Route::post('/vlozit-produkt', [ProduktController::class, 'vlozit_produkt_index'])->name('app_vlozit_produkt');
@@ -62,7 +64,7 @@ Route::get('/kosik', [KosikController::class, 'kosik'])->name('app_kosik');
 
 Route::get('/kategorie/{kategoria}', [ProduktController::class, 'kategoria'])->name('app_kategoria');
 Route::get('/vypredaj', [ProduktController::class, 'vypredaj'])->name('app_vypredaj');
-Route::get('najpredavanejsie', [ProduktController::class, 'najpredavanejsie'])->name('app_najpredavanejsie');
+Route::get('/najpredavanejsie', [ProduktController::class, 'najpredavanejsie'])->name('app_najpredavanejsie');
 
 Route::get('/vytvor-objednavku', [ObjednavkaController::class, 'vytvor_objednavku'])->name('app_vytvor_objednavku');
 Route::get('/objednavka/{id}', [ObjednavkaController::class, 'objednavka_detail'])->name('app_objednavka_detail');

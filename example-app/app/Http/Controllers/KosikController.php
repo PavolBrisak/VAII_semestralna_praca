@@ -13,6 +13,12 @@ class KosikController extends Controller
 {
     public function kosik(): View
     {
+        if (!Auth::check()) {
+            return view('prihlasenie')->withErrors([
+                'prihlasenie' => 'Prosím, prihláste sa pre zobrazenie košíka.',
+            ]);
+        }
+
         $cartItems = Auth::user()->kosik;
 
         return view('kosik', ['cartItems' => $cartItems]);
@@ -20,6 +26,12 @@ class KosikController extends Controller
 
     public function pridat_do_kosika($produktId): RedirectResponse
     {
+        if (!Auth::check()) {
+            return redirect()->route('app_prihlasenie')->withErrors([
+                'prihlasenie' => 'Prosím, prihláste sa pre pridanie produktu do košíka.',
+            ]);
+        }
+
         $produkt = Produkt::findOrFail($produktId);
 
         $existingProduct = Produkt_v_kosiku::where('user_id', Auth::id())

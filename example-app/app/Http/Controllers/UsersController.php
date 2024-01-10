@@ -61,4 +61,39 @@ class UsersController extends Controller
 
         return view('ucet', compact('user'));
     }
+
+
+    public function zrusit_ucet_index(): View
+    {
+        return view('zrusit-ucet');
+    }
+    public function zrusit_ucet(): RedirectResponse
+    {
+        if (!Auth::check()) {
+            return redirect()->route('app_prihlasenie')->withErrors('Najprv sa musíte prihlásiť.');
+        }
+
+        $user = Auth::user();
+
+        $produktyVKosiku = $user->kosik;
+        $produktyVKosiku->each(function ($item) {
+            $item->delete();
+        });
+
+        $objednavky = $user->objednavka;
+
+        foreach ($objednavky as $objednavka) {
+            $produktyVObjednavke = $objednavka->produkt_v_objednavke;
+            $produktyVObjednavke->each(function ($item) {
+                $item->delete();
+            });
+
+            $objednavka->delete();
+        }
+
+        $user->delete();
+
+        return redirect()->route('app_prihlasenie')->withSuccess('Účet bol úspešne zrušený.');
+    }
+
 }

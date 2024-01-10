@@ -11,7 +11,7 @@ use Illuminate\View\View;
 
 class ObjednavkaController extends Controller
 {
-    public function vytvor_objednavku(): View
+    public function vytvor_objednavku(): RedirectResponse
     {
 
         $user = Auth::user();
@@ -40,7 +40,14 @@ class ObjednavkaController extends Controller
             $item->delete();
         });
 
-        return view('objednavka-vytvorena', [
+        return redirect()->route('app_objednavka_detail', ['id' => $objednavka->id]);
+    }
+
+    public function objednavka_detail($id): View
+    {
+        $objednavka = Objednavka::findOrFail($id);
+
+        return view('vytvorena-objednavka', [
             'objednavka' => $objednavka,
         ]);
     }

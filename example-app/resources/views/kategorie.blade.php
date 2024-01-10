@@ -16,7 +16,9 @@
 @include('header')
 @include('search')
 @include('navigation-bar')
-<p> {{$kategoria}} </p>
+<div class="nadpis">
+    <p>Kategória - {{$kategoria}}</p>
+</div>
 <div class="produkt-form">
     @foreach($produkty as $produkt)
         <div class="produkt">

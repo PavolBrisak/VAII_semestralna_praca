@@ -15,6 +15,13 @@
 @include('header')
 @include('search')
 @include('navigation-bar')
+@if ($success ?? '')
+    <div class="alert-danger">
+        <ul>
+            <li>{{$success}}</li>
+        </ul>
+    </div>
+@endif
 @if ($errors->any())
     <div class="alert-danger">
         <ul>

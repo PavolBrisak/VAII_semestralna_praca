@@ -466,6 +466,52 @@ body {
     color: white;
 }
 
+.bi-arrow-clockwise {
+    font-size: 30px;
+    margin-right: 5px;
+}
+
+.bi-arrow-clockwise:hover {
+    color: purple;
+    cursor: pointer;
+}
+
+.nova-objednavka {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 20px;
+    font-family: 'Sen', serif;
+}
+
+.nova-objednavka-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.nova-objednavka p {
+    font-weight: bold;
+}
+
+.nova-objednavka-button button {
+    background-color: purple;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 10px;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.nova-objednavka-button a {
+    text-decoration: none;
+    color: white;
+}
+
 .nadpis {
     margin: 0;
     padding: 15px;
@@ -477,6 +523,35 @@ body {
     text-align: center;
     font-weight: bold;
     font-size: 40px;
+    color: white;
+}
+
+.zrusit-ucet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 20px;
+    font-family: 'Sen', serif;
+}
+
+.zrusit-ucet p {
+    font-weight: bold;
+}
+
+.zrusit-ucet button {
+    background-color: purple;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 10px;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.zrusit-ucet-button a {
+    text-decoration: none;
     color: white;
 }
 
