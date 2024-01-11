@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Objednavka;
+use App\Models\Produkt;
 use App\Models\Produkt_v_objednavke;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -13,9 +14,19 @@ class ObjednavkaController extends Controller
 {
     public function vytvor_objednavku(): RedirectResponse
     {
+        if (!Auth::check()) {
+            return redirect()->route('app_prihlasenie')->withErrors([
+                'prihlasenie' => 'Prosím, prihláste sa pre vytvorenie objednávky.',
+            ]);
+        }
 
         $user = Auth::user();
         $kosik = $user->kosik;
+
+        $kosik->each(function ($item) {
+            $product = Produkt::where('nazov', $item->nazov)->first();
+            $product->decrement('na_sklade', $item->mnozstvo);
+        });
 
         $totalAmount = $kosik->sum(function ($item) {
             return $item->cena * $item->mnozstvo;

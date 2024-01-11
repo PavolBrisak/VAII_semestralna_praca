@@ -20,8 +20,11 @@ class KosikController extends Controller
         }
 
         $cartItems = Auth::user()->kosik;
+        $totalPrice = $cartItems->sum(function ($item) {
+            return $item->cena * $item->mnozstvo;
+        });
 
-        return view('kosik', ['cartItems' => $cartItems]);
+        return view('kosik', ['cartItems' => $cartItems, 'totalPrice' => $totalPrice]);
     }
 
     public function pridat_do_kosika($produktId): RedirectResponse
@@ -29,6 +32,13 @@ class KosikController extends Controller
         if (!Auth::check()) {
             return redirect()->route('app_prihlasenie')->withErrors([
                 'prihlasenie' => 'Prosím, prihláste sa pre pridanie produktu do košíka.',
+            ]);
+        }
+
+        // check stock availability
+        if (Produkt::where('id', $produktId)->first()->na_sklade <= 0) {
+            return redirect()->route('app_produkt', ['id' => $produktId])->withErrors([
+                'produkt' => 'Produkt nie je dostupný na sklade.',
             ]);
         }
 
@@ -49,6 +59,20 @@ class KosikController extends Controller
             ]);
         }
 
-        return redirect()->route('app_kosik')->with('success', 'Product added to cart successfully!');
+        return redirect()->route('app_kosik')->with('success', 'Produkt bol pridaný do košíka.');
+    }
+
+    public function vymazat_z_kosika($cartItemId): RedirectResponse
+    {
+        if (!Auth::check()) {
+            return redirect()->route('app_prihlasenie')->withErrors([
+                'prihlasenie' => 'Prosím, prihláste sa pre vymazanie produktu z košíka.',
+            ]);
+        }
+
+        $cartItem = Produkt_v_kosiku::findOrFail($cartItemId);
+        $cartItem->delete();
+
+        return redirect()->route('app_kosik')->with('success', 'Produkt bol vymazaný z košíka.');
     }
 }

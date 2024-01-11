@@ -19,6 +19,16 @@
 @include('header')
 @include('search')
 @include('navigation-bar')
+@if ($errors->any())
+    <div class="alert-danger">
+        <ul>
+            <li>Došlo ku chybe pri pridávaní produktu do košíka</li>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="produkt-page">
     <div class="produkt-page-image">
         <img src="{{url('storage/'.$produkt->obrazok)}}" alt="{{$produkt->nazov}}" width="270" height="170">
@@ -45,10 +55,16 @@
         <div class="produkt-page-data-description">
             <p> {{$produkt->popis}} </p>
         </div>
+        @if ($produkt->na_sklade > 0)
         <div class="produkt-page-data-button">
             <button class="produkt-page-data-button"><a
                     href="{{ route('app_pridaj_do_kosika', ['id' => $produkt->id]) }}">Pridať do košíka</a></button>
         </div>
+        @else
+            <div class="produkt-page-vypredane">
+                <p class="produkt-page-data-vypredane">Vypredané</p>
+            </div>
+        @endif
     </div>
 </div>
 @include('footer')

@@ -466,6 +466,13 @@ body {
     color: white;
 }
 
+.produkt-page-data-vypredane {
+    font-size: 25px;
+    margin-bottom: 10px;
+    color: red;
+    font-weight: bold;
+}
+
 .bi-arrow-clockwise {
     font-size: 30px;
     margin-right: 5px;
