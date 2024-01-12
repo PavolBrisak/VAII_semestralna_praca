@@ -79,4 +79,14 @@ class ProduktController extends Controller
             'produkty' => $produkty,
         ]);
     }
+
+    public function vyhladat(Request $request)
+    {
+        $search = $request->input('search');
+        $produkty = Produkt::where('nazov', 'like', '%' . $search . '%')->get();
+        return view('vyhladane', [
+            'produkty' => $produkty,
+            'search' => $search,
+        ]);
+    }
 }

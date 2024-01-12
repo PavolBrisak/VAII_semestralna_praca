@@ -28,3 +28,8 @@ function showDropdownUser() {
         dropdownContent.style.display = 'block';
     }
 }
+
+function submitSearchForm() {
+    let searchInputValue = document.getElementById('searchInput').value;
+    document.location.href = window.searchUrl + '/' + encodeURIComponent(searchInputValue);
+}

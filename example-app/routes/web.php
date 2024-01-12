@@ -58,6 +58,7 @@ Route::post('/zrusit-ucet', [UsersController::class, 'zrusit_ucet'])->name('app_
 Route::get('/vlozit-produkt', [ProduktController::class, 'vlozit_produkt'])->name('app_vlozit_produkt');
 Route::post('/vlozit-produkt', [ProduktController::class, 'vlozit_produkt_index'])->name('app_vlozit_produkt');
 Route::get('/produkt/id={id}', [ProduktController::class, 'produkt'])->name('app_produkt');
+Route::get('/vyhladať', [ProduktController::class, 'vyhladat'])->name('app_vyhladaj');
 Route::post('/ajax/refreshNaSklade', [AjaxController::class, 'refreshNaSklade'])->name('app_ajax_refreshNaSklade');
 Route::post('/ajax/updateQuantity', [AjaxController::class, 'updateQuantity'])->name('app_ajax_update_quantity');
 Route::get('/pridat-do-kosika/{id}', [KosikController::class, 'pridat_do_kosika'])->name('app_pridaj_do_kosika');
