@@ -38,8 +38,6 @@
                     <input type="text" id="meno" name="meno" oninput="checkMeno()"></li>
                 <li><div class="spolusu"><label for="priezvisko">Priezvisko</label><span class="form-error" id="form-error-priezvisko" hidden>Priezvisko musí začínať veľkým písmenom</span></div>
                     <input type="text" id="priezvisko" name="priezvisko" oninput="checkPriezvisko()"></li>
-                <li><label for="dic">DIČ</label>
-                    <input type="text" id="dic" name="dic"></li>
 
                 <li>Prihlasovacie informácie</li>
                 <li><div class="spolusu"><label for="email">Email</label><span class="form-error" id="form-error-email" hidden>Neplatný email</span></div>

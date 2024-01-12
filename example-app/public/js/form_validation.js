@@ -49,12 +49,11 @@ function validateFormPrihlasenie() {
 function validateFormRegistracia() {
     let meno = document.getElementById("meno").value;
     let priezvisko = document.getElementById("priezvisko").value;
-    let dic = document.getElementById("dic").value;
     let email = document.getElementById("email").value;
     let heslo = document.getElementById("heslo").value;
     let heslo_potvrd = document.getElementById("heslo_potvrd").value;
 
-    if (meno === "" || priezvisko === "" || dic === "" || email === "" || heslo === "" || heslo_potvrd === "") {
+    if (meno === "" || priezvisko === "" || email === "" || heslo === "" || heslo_potvrd === "") {
         alert("Prosím vyplňte všetky údaje");
         return false;
     }

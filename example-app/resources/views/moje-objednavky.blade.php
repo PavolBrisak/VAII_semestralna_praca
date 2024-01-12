@@ -10,12 +10,11 @@
     <script src="{{url('js/main.js')}}"></script>
 </head>
 <body>
-
 @include('header')
 @include('search')
 @include('navigation-bar')
 <div class="nadpis">
-    <p>Môj účet</p>
+    <p>Moje objednávky</p>
 </div>
 <div class="account-container">
     <div class="account-sidebar">
@@ -24,18 +23,30 @@
             <li><a href="{{ route('app_moje_objednavky') }}">Moje objednávky</a></li>
             <li><a href="{{ route('app_zmena_mena') }}">Zmeniť meno</a></li>
             <li><a href="{{ route('app_zmena_hesla') }}">Zmeniť si heslo</a></li>
-            <li><a href="{{ route('app_odhlasenie') }}">Odhlásiť sa</a></li>
             <li><a href="{{ route('app_zrusit_ucet_index') }}">Zrušiť účet</a></li>
         </ul>
     </div>
     <div class="account-content">
-        <div class="account-content-body">
-            <div class="account-content-body-item">
-                <h2>Osobné informácie</h2>
-                <p>Meno: {{ $user->name }}</p>
-                <p>Priezvisko: {{ $user->surname }}</p>
-                <p>Email: {{ $user->email }}</p>
-            </div>
+        <div class="account-orders">
+            <table>
+                <tr>
+                    <th>Číslo objednávky</th>
+                    <th>Detail objednávky</th>
+                    <th>Dátum objednávky</th>
+                    <th>Cena</th>
+                    <th>Stav</th>
+                </tr>
+                @foreach($objednavky as $objednavka)
+                    <tr>
+                        <td>{{ $objednavka->id }}</td>
+                        <td><a href="{{ route('app_zobraz_objednavku', ['id' => $objednavka->id]) }}">Zobraziť objednávku</a></td>
+                        <td>{{ $objednavka->created_at }}</td>
+                        <td>{{ $objednavka->total_amount }} €</td>
+                        <td>{{ $objednavka->status }}</td>
+                    </tr>
+                @endforeach
+            </table>
+            {{ $objednavky->links() }}
         </div>
     </div>
 </div>

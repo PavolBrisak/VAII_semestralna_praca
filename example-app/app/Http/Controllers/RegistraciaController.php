@@ -22,7 +22,6 @@ class RegistraciaController extends Controller
         $request->validate([
             'meno' => 'required|string|regex:/^[A-Z][a-z]+$/',
             'priezvisko' => 'required|string|regex:/^[A-Z][a-z]+$/',
-            'dic' => 'nullable|string',
             'email' => 'required|email|unique:users,email',
             'heslo' => 'required|string|min:8',
             'heslo_potvrd' => 'required|same:heslo',

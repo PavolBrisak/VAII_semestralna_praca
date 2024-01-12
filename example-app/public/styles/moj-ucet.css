@@ -1,0 +1,162 @@
+.account-container {
+    display: flex;
+}
+
+.account-sidebar {
+    width: 250px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.account-sidebar p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.account-sidebar ul {
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.account-sidebar li {
+    margin: 10px;
+    padding: 10px;
+}
+
+.account-sidebar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.account-sidebar a:hover {
+    color: #8a2be2;
+    text-decoration: underline;
+}
+
+.account-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.account-content-body {
+    max-width: 1100px;
+}
+
+.account-content-body h1 {
+    color: #333;
+}
+
+.account-content-body-item {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.account-orders {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.account-orders h2 {
+    color: #333;
+}
+
+.account-orders table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.account-orders th, .account-orders td {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: left;
+}
+
+.account-orders th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.account-orders tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.account-orders a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.account-orders a:hover {
+    color: #8a2be2;
+    text-decoration: underline;
+}
+
+.account-orders tr:hover {
+    background-color: #f0f0f0;
+}
+
+.account-products-in-order-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.account-products-in-order-body th,
+.account-products-in-order-body td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.account-products-in-order-body th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+}
+
+.account-products-in-order-body tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.account-products-in-order-body tr:hover {
+    background-color: #f0f0f0;
+}
+
+.account-products-in-order-body-item table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.account-products-in-order-body-item th,
+.account-products-in-order-body-item td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.account-products-in-order-body-item th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+}
+
+.account-products-in-order-body-item tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.account-products-in-order-body-item tr:hover {
+    background-color: #f0f0f0;
+}
+

@@ -10,12 +10,11 @@
     <script src="{{url('js/main.js')}}"></script>
 </head>
 <body>
-
 @include('header')
 @include('search')
 @include('navigation-bar')
 <div class="nadpis">
-    <p>Môj účet</p>
+    <p>Moje objednávky</p>
 </div>
 <div class="account-container">
     <div class="account-sidebar">
@@ -24,17 +23,30 @@
             <li><a href="{{ route('app_moje_objednavky') }}">Moje objednávky</a></li>
             <li><a href="{{ route('app_zmena_mena') }}">Zmeniť meno</a></li>
             <li><a href="{{ route('app_zmena_hesla') }}">Zmeniť si heslo</a></li>
-            <li><a href="{{ route('app_odhlasenie') }}">Odhlásiť sa</a></li>
             <li><a href="{{ route('app_zrusit_ucet_index') }}">Zrušiť účet</a></li>
         </ul>
     </div>
     <div class="account-content">
-        <div class="account-content-body">
-            <div class="account-content-body-item">
-                <h2>Osobné informácie</h2>
-                <p>Meno: {{ $user->name }}</p>
-                <p>Priezvisko: {{ $user->surname }}</p>
-                <p>Email: {{ $user->email }}</p>
+        <div class="account-products-in-order-header">
+            <h1>Objednávka číslo - {{ $objednavka->id }}</h1>
+        </div>
+        <div class="account-products-in-order-body">
+            <div class="account-products-in-order-body-item">
+                <h2>Produkty v objednávke</h2>
+                <table>
+                    <tr>
+                        <th>Názov</th>
+                        <th>Počet</th>
+                        <th>Cena</th>
+                    </tr>
+                    @foreach($produktyVObjednavke as $product)
+                        <tr>
+                            <td>{{ $product->nazov }}</td>
+                            <td>{{ $product->mnozstvo }}</td>
+                            <td>{{ $product->cena * $product->mnozstvo }} €</td>
+                        </tr>
+                    @endforeach
+                </table>
             </div>
         </div>
     </div>

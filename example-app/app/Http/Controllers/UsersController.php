@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Objednavka;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -19,6 +20,20 @@ class UsersController extends Controller
     public function zmena_mena_index(): View
     {
         return view('zmena-mena');
+    }
+
+    public function moje_objednavky(): View
+    {
+        $user = Auth::user();
+        $objednavky = $user->objednavka()->paginate(10);
+        return view('moje-objednavky', compact('objednavky'));
+    }
+
+    public function zobraz_objednavku($id): View
+    {
+        $objednavka = Objednavka::findOrFail($id);
+        $produktyVObjednavke = $objednavka->produkt_v_objednavke;
+        return view('zobraz-objednavku', compact('objednavka', 'produktyVObjednavke'));
     }
 
     public function zmena_mena(Request $request): View

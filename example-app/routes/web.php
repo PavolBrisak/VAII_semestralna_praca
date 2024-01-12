@@ -54,6 +54,8 @@ Route::get('/zmena-hesla', [UsersController::class, 'zmena_hesla_index'])->name(
 Route::post('/zmena-hesla', [UsersController::class, 'zmena_hesla'])->name('app_zmena_hesla');
 Route::get('/zrusit-ucet-index', [UsersController::class, 'zrusit_ucet_index'])->name('app_zrusit_ucet_index');
 Route::post('/zrusit-ucet', [UsersController::class, 'zrusit_ucet'])->name('app_zrusit_ucet');
+Route::get('/moje-objednavky', [UsersController::class, 'moje_objednavky'])->name('app_moje_objednavky');
+Route::get('/moje-objednavky/id={id}', [UsersController::class, 'zobraz_objednavku'])->name('app_zobraz_objednavku');
 
 Route::get('/vlozit-produkt', [ProduktController::class, 'vlozit_produkt'])->name('app_vlozit_produkt');
 Route::post('/vlozit-produkt', [ProduktController::class, 'vlozit_produkt_index'])->name('app_vlozit_produkt');
