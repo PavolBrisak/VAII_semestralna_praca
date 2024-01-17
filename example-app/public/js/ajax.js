@@ -59,6 +59,7 @@ function filterProducts() {
             _token: $('meta[name="csrf-token"]').attr('content'),
         },
         success: function (response) {
+            console.log(response.htmlContent);
             $("#produkty").html(response.htmlContent);
         },
         error: function (error) {
@@ -120,10 +121,10 @@ function validateFormUpravitProdukt(element)
             _token: $('meta[name="csrf-token"]').attr('content'),
         },
         success: function (response) {
-            $("#success").show();
+            $("#success").css("display", "block");
         },
         error: function (error) {
             console.log(error);
-        }
+        },
     });
 }

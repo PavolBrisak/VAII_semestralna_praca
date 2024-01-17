@@ -11,7 +11,9 @@
             <div class="produkt-data">{{$produkt->cena}} €</div>
         @endif
         <div class="produkt-button">
-            <button class="produkt-button" href="{{ route('app_upravit_produkt_id_index', ['id' => $produkt->id]) }}">Zobraziť viac</button>
+            <button class="produkt-button" href="{{ route('app_upravit_produkt_id_index', ['id' => $produkt->id]) }}">
+                Zobraziť viac
+            </button>
         </div>
     </div>
 @endforeach

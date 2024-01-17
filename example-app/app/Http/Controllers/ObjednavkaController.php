@@ -26,6 +26,7 @@ class ObjednavkaController extends Controller
         $kosik->each(function ($item) {
             $product = Produkt::where('nazov', $item->nazov)->first();
             $product->decrement('na_sklade', $item->mnozstvo);
+            $product->increment('pocet_predanych', $item->mnozstvo);
         });
 
         $totalAmount = $kosik->sum(function ($item) {

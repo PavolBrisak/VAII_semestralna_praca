@@ -12,7 +12,8 @@ use Illuminate\View\View;
 
 class AjaxController extends Controller
 {
-    public function refreshNaSklade(Request $request): JsonResponse {
+    public function refreshNaSklade(Request $request): JsonResponse
+    {
         $producktId = $request->input('produkt_id');
         $produkt = Produkt::where('id', $producktId)->first();
         $naSklade = $produkt->na_sklade;
@@ -21,7 +22,8 @@ class AjaxController extends Controller
         ]);
     }
 
-    public function updateQuantity(Request $request): JsonResponse {
+    public function updateQuantity(Request $request): JsonResponse
+    {
         $produktCartId = $request->input('productId');
         $quantity = $request->input('newQuantity');
         $productName = $request->input('productName');
@@ -62,10 +64,12 @@ class AjaxController extends Controller
         $category = $request->input('category');
         $priceFrom = $request->input('priceFrom');
         $priceTo = $request->input('priceTo');
+        $onSale = $request->input('onSale');
 
         $products = Produkt::where('kategoria', $category)
             ->where('cena', '>=', $priceFrom)
             ->where('cena', '<=', $priceTo)
+            ->where('je_v_zlave', $onSale == 'true' ? '1' : '0')
             ->get();
 
         $htmlContent = view('products_partial')->with('produkty', $products)->render();
