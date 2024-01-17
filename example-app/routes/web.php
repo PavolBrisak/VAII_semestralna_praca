@@ -56,15 +56,21 @@ Route::get('/zrusit-ucet-index', [UsersController::class, 'zrusit_ucet_index'])-
 Route::post('/zrusit-ucet', [UsersController::class, 'zrusit_ucet'])->name('app_zrusit_ucet');
 Route::get('/moje-objednavky', [UsersController::class, 'moje_objednavky'])->name('app_moje_objednavky');
 Route::get('/moje-objednavky/id={id}', [UsersController::class, 'zobraz_objednavku'])->name('app_zobraz_objednavku');
-
 Route::get('/vlozit-produkt', [ProduktController::class, 'vlozit_produkt'])->name('app_vlozit_produkt');
+
+Route::get('/upravit-produkt-index', [ProduktController::class, 'upravit_produkt_index'])->name('app_upravit_produkt_index');
+Route::get('/upravit-produkt-index/id={id}', [ProduktController::class, 'upravit_produkt_id_index'])->name('app_upravit_produkt_id_index');
+Route::post('/upravit-produkt', [ProduktController::class, 'upravit_produkt'])->name('app_upravit_produkt');
+
+Route::post('/ajax/filterProducts', [AjaxController::class, 'filterProducts'])->name('app_ajax_filterProducts');
+Route::get('/upravit-objednavky', [ObjednavkaController::class, 'upravit_objednavky'])->name('app_upravit_objednavky');
 Route::post('/vlozit-produkt', [ProduktController::class, 'vlozit_produkt_index'])->name('app_vlozit_produkt');
 Route::get('/produkt/id={id}', [ProduktController::class, 'produkt'])->name('app_produkt');
 Route::get('/vyhladať', [ProduktController::class, 'vyhladat'])->name('app_vyhladaj');
 Route::post('/ajax/refreshNaSklade', [AjaxController::class, 'refreshNaSklade'])->name('app_ajax_refreshNaSklade');
 Route::post('/ajax/updateQuantity', [AjaxController::class, 'updateQuantity'])->name('app_ajax_update_quantity');
-Route::get('/pridat-do-kosika/{id}', [KosikController::class, 'pridat_do_kosika'])->name('app_pridaj_do_kosika');
-Route::get('/vymazat-z-kosika/{id}', [KosikController::class, 'vymazat_z_kosika'])->name('app_vymazat_z_kosika');
+Route::get('/pridat-do-kosika/id={id}', [KosikController::class, 'pridat_do_kosika'])->name('app_pridaj_do_kosika');
+Route::get('/vymazat-z-kosika/id={id}', [KosikController::class, 'vymazat_z_kosika'])->name('app_vymazat_z_kosika');
 Route::get('/kosik', [KosikController::class, 'kosik'])->name('app_kosik');
 
 Route::get('/kategorie/{kategoria}', [ProduktController::class, 'kategoria'])->name('app_kategoria');

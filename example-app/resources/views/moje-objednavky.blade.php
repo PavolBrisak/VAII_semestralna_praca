@@ -23,31 +23,41 @@
             <li><a href="{{ route('app_moje_objednavky') }}">Moje objednávky</a></li>
             <li><a href="{{ route('app_zmena_mena') }}">Zmeniť meno</a></li>
             <li><a href="{{ route('app_zmena_hesla') }}">Zmeniť si heslo</a></li>
+            <li><a href="{{ route('app_odhlasenie') }}">Odhlásiť sa</a></li>
             <li><a href="{{ route('app_zrusit_ucet_index') }}">Zrušiť účet</a></li>
         </ul>
     </div>
     <div class="account-content">
-        <div class="account-orders">
-            <table>
-                <tr>
-                    <th>Číslo objednávky</th>
-                    <th>Detail objednávky</th>
-                    <th>Dátum objednávky</th>
-                    <th>Cena</th>
-                    <th>Stav</th>
-                </tr>
-                @foreach($objednavky as $objednavka)
+        @if ($objednavky->isEmpty())
+            <div class="account-orders-null">
+                <p>Nemáte žiadne objednávky</p>
+            </div>
+        @else
+            <div class="account-orders">
+                <table>
                     <tr>
-                        <td>{{ $objednavka->id }}</td>
-                        <td><a href="{{ route('app_zobraz_objednavku', ['id' => $objednavka->id]) }}">Zobraziť objednávku</a></td>
-                        <td>{{ $objednavka->created_at }}</td>
-                        <td>{{ $objednavka->total_amount }} €</td>
-                        <td>{{ $objednavka->status }}</td>
+                        <th>Číslo objednávky</th>
+                        <th>Detail objednávky</th>
+                        <th>Dátum objednávky</th>
+                        <th>Cena</th>
+                        <th>Stav</th>
                     </tr>
-                @endforeach
-            </table>
-            {{ $objednavky->links() }}
-        </div>
+                    @foreach($objednavky as $objednavka)
+                        <tr>
+                            <td>{{ $objednavka->id }}</td>
+                            <td><a href="{{ route('app_zobraz_objednavku', ['id' => $objednavka->id]) }}">Zobraziť
+                                    objednávku</a></td>
+                            <td>{{ $objednavka->created_at }}</td>
+                            <td>{{ $objednavka->total_amount }} €</td>
+                            <td>{{ $objednavka->status }}</td>
+                        </tr>
+                    @endforeach
+                </table>
+                <div class="pagination-container">
+                    {{ $objednavky->links() }}
+                </div>
+            </div>
+        @endif
     </div>
 </div>
 @include('footer')

@@ -11,10 +11,10 @@ use Illuminate\View\View;
 
 class UsersController extends Controller
 {
-    public function odhlasenie(): RedirectResponse
+    public function odhlasenie(): View
     {
         Auth::logout();
-        return redirect()->route('app_index');
+        return view('prihlasenie', ['success' => 'Boli ste úspešne odhlásený.']);
     }
 
     public function zmena_mena_index(): View

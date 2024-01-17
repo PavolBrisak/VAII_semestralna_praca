@@ -12,8 +12,8 @@
                 <a href="{{ route('app_prihlasenie') }}" class="dropdown-content-item">Prihlásiť sa</a>
                 <a href="{{ route('app_registracia') }}" class="dropdown-content-item">Vytvoriť si účet</a>
             @else
-                <a href="{{ route('app_odhlasenie') }}" class="dropdown-content-item">Odhlásiť sa</a>
                 <a href="{{ route('app_ucet') }}" class="dropdown-content-item">Môj účet</a>
+                <a href="{{ route('app_odhlasenie') }}" class="dropdown-content-item">Odhlásiť sa</a>
             @endguest
         </div>
     </div>

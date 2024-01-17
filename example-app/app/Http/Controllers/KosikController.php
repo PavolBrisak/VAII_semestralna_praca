@@ -35,7 +35,6 @@ class KosikController extends Controller
             ]);
         }
 
-        // check stock availability
         if (Produkt::where('id', $produktId)->first()->na_sklade <= 0) {
             return redirect()->route('app_produkt', ['id' => $produktId])->withErrors([
                 'produkt' => 'Produkt nie je dostupný na sklade.',
@@ -55,7 +54,7 @@ class KosikController extends Controller
                 'user_id' => Auth::id(),
                 'nazov' => $produkt->nazov,
                 'mnozstvo' => 1,
-                'cena' => $produkt->cena,
+                'cena' => $produkt->je_v_zlave ? $produkt->cena_zlava : $produkt->cena,
             ]);
         }
 

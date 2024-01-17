@@ -33,3 +33,18 @@ function submitSearchForm() {
     let searchInputValue = document.getElementById('searchInput').value;
     document.location.href = window.searchUrl + '/' + encodeURIComponent(searchInputValue);
 }
+
+$(document).ready(function () {
+    // Set initial price value
+    updateCenaValue($("#cena").val());
+
+    // Attach change event to slider
+    $("#cena").on("input", function () {
+        updateCenaValue($(this).val());
+    });
+});
+
+function updateCenaValue(value) {
+    // Update displayed price next to the slider
+    $("#cenaValue").text(value + " €");
+}

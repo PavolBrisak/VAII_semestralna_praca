@@ -24,7 +24,7 @@ function updateQuantity(element) {
     let productId = $(element).data('product-id');
     let productName = $(element).data('product-name');
     let newQuantity = $(element).val();
-    console.log(productName);
+
     $.ajax({
         url: "/ajax/updateQuantity",
         method: "POST",
@@ -43,3 +43,87 @@ function updateQuantity(element) {
     });
 }
 
+function filterProducts() {
+    let kategorie = $("#kategorie").val();
+    let cena = $("#cena").val();
+    let onSale = $("#onSale").is(":checked");
+
+    $.ajax({
+        url: "/ajax/filterProducts",
+        method: "POST",
+        data: {
+            category: kategorie,
+            priceFrom: 0,
+            priceTo: cena,
+            onSale: onSale,
+            _token: $('meta[name="csrf-token"]').attr('content'),
+        },
+        success: function (response) {
+            $("#produkty").html(response.htmlContent);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function validateFormUpravitProdukt(element)
+{
+    let nazov = $(element).find("#name").val();
+    let cena = $(element).find("#price").val();
+    let category = $(element).find("#category").val();
+    let popis = $(element).find("#description").val();
+    let amount = $(element).find("#amount").val();
+    let description = $(element).find("#description").val();
+    let onSale = $(element).find("#onSale").is(":checked");
+    let salePrice = $(element).find("#salePrice").val();
+    let id = $(element).find("#id").val();
+
+    if (nazov !== "" && !/^[A-Z]/.test(nazov)) {
+        alert("Názov musí začínať veľkým písmenom");
+        return false;
+    }
+
+    if (cena !== "" && !/^[0-9]/.test(cena)) {
+        alert("Cena musí byť číslo");
+        return false;
+    }
+
+    if (salePrice !== "" && !/^[0-9]/.test(salePrice)) {
+        alert("Cena musí byť číslo");
+        return false;
+    }
+
+    if (onSale === true && salePrice === "") {
+        alert("Zadajte zľavnenú cenu");
+        return false;
+    }
+
+    if (salePrice !== "" && salePrice >= cena) {
+        alert("Zľavnená cena musí byť menšia ako pôvodná cena");
+        return false;
+    }
+
+    $.ajax({
+        url: "/upravit-produkt",
+        method: "POST",
+        data: {
+            id: id,
+            nazov: nazov,
+            cena: cena,
+            category: category,
+            popis: popis,
+            amount: amount,
+            description: description,
+            onSale: onSale,
+            salePrice: salePrice,
+            _token: $('meta[name="csrf-token"]').attr('content'),
+        },
+        success: function (response) {
+            $("#success").show();
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}

@@ -5,17 +5,17 @@
                 <a><i class="bi bi-bookmark"></i>
                     Kategórie</a>
                 <div class="kategorie-dropdown-content">
-                    <a href="{{route('app_kategoria', ['kategoria' => 'kvetinky'])}}">Kvetinky</a>
-                    <a href="{{route('app_kategoria', ['kategoria' => 'jedlo'])}}">Jedlo</a>
-                    <a href="{{route('app_kategoria', ['kategoria' => 'pucky'])}}">Pucky</a>
-                    <a href="{{route('app_kategoria', ['kategoria' => 'tvary'])}}">Tvary</a>
-                    <a href="{{route('app_kategoria', ['kategoria' => 'vianocne'])}}">Vianočné</a>
-                    <a href="{{route('app_kategoria', ['kategoria' => 'srdiecka'])}}">Srdiečka</a>
-                    <a href="{{route('app_kategoria', ['kategoria' => 'smajliky'])}}">Smajlíky</a>
-                    <a href="{{route('app_kategoria', ['kategoria' => 'pride'])}}">Pride</a>
-                    <a href="{{route('app_kategoria', ['kategoria' => 'kamienky'])}}">Kamienky</a>
-                    <a href="{{route('app_kategoria', ['kategoria' => 'memes'])}}">Memes</a>
-                    <a href="{{route('app_kategoria', ['kategoria' => 'ostatne'])}}">Ostatné</a>
+                    <a href="{{route('app_kategoria', ['kategoria' => 'Kvetinky'])}}">Kvetinky</a>
+                    <a href="{{route('app_kategoria', ['kategoria' => 'Jedlo'])}}">Jedlo</a>
+                    <a href="{{route('app_kategoria', ['kategoria' => 'Pucky'])}}">Pucky</a>
+                    <a href="{{route('app_kategoria', ['kategoria' => 'Tvary'])}}">Tvary</a>
+                    <a href="{{route('app_kategoria', ['kategoria' => 'Vianočné'])}}">Vianočné</a>
+                    <a href="{{route('app_kategoria', ['kategoria' => 'Srdiečka'])}}">Srdiečka</a>
+                    <a href="{{route('app_kategoria', ['kategoria' => 'Smajlíky'])}}">Smajlíky</a>
+                    <a href="{{route('app_kategoria', ['kategoria' => 'Pride'])}}">Pride</a>
+                    <a href="{{route('app_kategoria', ['kategoria' => 'Kamienky'])}}">Kamienky</a>
+                    <a href="{{route('app_kategoria', ['kategoria' => 'Memes'])}}">Memes</a>
+                    <a href="{{route('app_kategoria', ['kategoria' => 'Ostatné'])}}">Ostatné</a>
                 </div>
             </div>
         </li>
@@ -25,7 +25,9 @@
         <li><a href={{route('app_doprava')}}>Doprava a platba</a></li>
         <li><a href={{route('app_kontakt')}}>Kontakty</a></li>
         @auth
-            @if(auth()->user()->getEmail() == 'admin@gmail.com')
+            @if(auth()->user()->email == 'admin@gmail.com')
+                <li class="navigation-bar-list-admin"><a class="navigation-bar-list-admin" href="{{route('app_upravit_objednavky') }}">Upraviť objednávky</a></li>
+                <li class="navigation-bar-list-admin"><a class="navigation-bar-list-admin" href="{{route('app_upravit_produkt_index') }}">Upraviť produkt</a></li>
                 <li class="navigation-bar-list-admin"><a class="navigation-bar-list-admin" href="{{route('app_vlozit_produkt') }}">Vložiť produkt</a></li>
             @endif
         @endauth

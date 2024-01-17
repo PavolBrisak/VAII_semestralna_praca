@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produkt;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class ProduktController extends Controller
 {
-
     public function vlozit_produkt_index(Request $request): RedirectResponse
     {
         $request->validate([
@@ -43,6 +43,45 @@ class ProduktController extends Controller
         ]);
     }
 
+    public function upravit_produkt_index(): View
+    {
+        $produkty = Produkt::all();
+        return view('upravit-produkt', [
+            'produkty' => $produkty,
+        ]);
+    }
+
+    public function upravit_produkt_id_index($id): View
+    {
+        $produkt = Produkt::findOrFail($id);
+        return view('upravit-produkt-index', compact('produkt'))->with('success', '');
+    }
+
+    public function upravit_produkt(Request $request): JsonResponse
+    {
+        $request->validate([
+            'nazov' => 'required',
+            'popis' => 'required',
+            'cena' => 'required',
+            'category' => 'required',
+        ]);
+
+        $produkt = Produkt::findOrFail($request->input('id'));
+
+        $produkt->update([
+            'nazov' => $request->input('nazov'),
+            'popis' => $request->input('popis'),
+            'cena' => $request->input('cena'),
+            'kategoria' => $request->input('category'),
+            'na_sklade' => $request->input('amount'),
+            'je_v_zlave' => $request->input('onSale') == 'true',
+            'cena_zlava' => $request->input('onSale') == 'true' ? $request->input('salePrice') : null,
+        ]);
+
+        return response()->json();
+//        return redirect()->route('app_upravit_produkt_id_index', ['id' => $produkt->id])->with('success', 'Produkt bol upravený');
+    }
+
     public function produkt(int $id): View
     {
         $produkt = Produkt::where('id', $id)->first();
@@ -54,7 +93,6 @@ class ProduktController extends Controller
 
     public function kategoria(string $kategoria): View
     {
-        /* select from produkts where kategoria = $kategoria */
         $produkty = Produkt::where('kategoria', $kategoria)->get();
 
         return view('kategorie', [

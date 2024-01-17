@@ -11,8 +11,7 @@ class PrihlasenieController extends Controller
 {
     public function get(): View
     {
-        return view('prihlasenie', [
-        ]);
+        return view('prihlasenie');
     }
 
     public function post(Request $request): RedirectResponse

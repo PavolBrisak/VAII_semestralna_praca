@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Produkt;
 use App\Models\Produkt_v_kosiku;
+use http\Env\Response;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\View\View;
 
 class AjaxController extends Controller
 {
@@ -52,6 +54,24 @@ class AjaxController extends Controller
 
         return response()->json([
             'success' => 'Množstvo bolo aktualizované.',
+        ]);
+    }
+
+    public function filterProducts(Request $request): JsonResponse
+    {
+        $category = $request->input('category');
+        $priceFrom = $request->input('priceFrom');
+        $priceTo = $request->input('priceTo');
+
+        $products = Produkt::where('kategoria', $category)
+            ->where('cena', '>=', $priceFrom)
+            ->where('cena', '<=', $priceTo)
+            ->get();
+
+        $htmlContent = view('products_partial')->with('produkty', $products)->render();
+
+        return response()->json([
+            'htmlContent' => $htmlContent,
         ]);
     }
 }

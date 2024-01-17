@@ -16,5 +16,8 @@ class Produkt extends Model
         'kategoria',
         'obrazok',
         'na_sklade',
+        'pocet_predanych',
+        'je_v_zlave',
+        'cena_zlava',
     ];
 }

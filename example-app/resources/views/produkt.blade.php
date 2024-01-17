@@ -38,8 +38,8 @@
             <p> {{$produkt->nazov}} </p>
         </div>
         <div class="produkt-page-data-price">
-            @if ($produkt->zlava)
-                <p><s>{{$produkt->cena}} €</s> {{$produkt->cena - $produkt->zlava}} €</p>
+            @if ($produkt->je_v_zlave)
+                <p><s>{{$produkt->cena}} €</s> {{$produkt->cena_zlava}} €</p>
             @else
                 <p> {{$produkt->cena}} €</p>
             @endif

@@ -1,0 +1,50 @@
+/* Add your styling for the filter elements here */
+.filter {
+    background-color: #f4f4f4;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+#filterForm {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+label {
+    margin-right: 10px;
+}
+
+select, input[type="range"], input[type="checkbox"], button {
+    margin-bottom: 10px;
+}
+
+#cenaValue {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/* Style the button */
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Add styles for the range input */
+input[type="range"] {
+    width: 80%;
+    margin-right: 10px;
+}
+
+/* Add styles for the checkbox */
+input[type="checkbox"] {
+    margin-left: 5px;
+}

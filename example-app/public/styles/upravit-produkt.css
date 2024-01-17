@@ -1,0 +1,107 @@
+.kontakt-form {
+    background-color: white;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    width: 650px;
+    height: 720px;
+    margin: auto;
+    border-color: black;
+    margin-top: 35px;
+    margin-bottom: 50px;
+}
+
+.kontakt-form li {
+    margin-bottom: 12px;
+}
+
+.kontakt-form li:nth-child(1) {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.kontakt-form .send-button {
+    display: block;
+}
+
+.kontakt-form input {
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+}
+
+.kontakt-nadpis {
+    background-color: mediumpurple;
+    margin: 0;
+    padding: 15px;
+    height: 126px;
+}
+
+.kontakt-form li label {
+    text-align: left;
+    font-weight: bold;
+}
+
+.kontakt-form textarea {
+    margin-top: 10px;
+    height: 50px;
+    width: 97.5%;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+    resize: none;
+    max-height: 1%;
+}
+
+.kontakt-form ul {
+    margin-left: 15px;
+    list-style: none;
+    padding: 10px;
+    text-align: left;
+}
+
+.filler {
+    height: 700px;
+}
+
+.send-button {
+    background-color: darkmagenta;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 50%;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .kontakt-form {
+        padding: 10px;
+        width: 440px;
+        height: 500px;
+    }
+
+    .kontakt-form ul {
+        padding: 0;
+    }
+
+    .kontakt-form li {
+        margin: 10px 0;
+    }
+
+    .send-button {
+        margin: 0;
+    }
+
+    .kontakt-form li input {
+        width: 300px;
+    }
+
+    .kontakt-form textarea {
+        width: 300px;
+    }
+}
