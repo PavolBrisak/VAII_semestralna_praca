@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produkt;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
@@ -10,9 +11,12 @@ class MainController extends Controller
 {
     public function index(): View
     {
-        $pozdrav = "ahoj";
+        $produktyNahodnyVyber = Produkt::inRandomOrder()->limit(rand(5, 15))->get();
+        $produktyNove = Produkt::orderBy('created_at', 'desc')->take(10)->get();
+
         return view('welcome', [
-            'kluc' => $pozdrav
+            'produktyNahodnyVyber' => $produktyNahodnyVyber,
+            'produktyNovinky' => $produktyNove,
         ]);
     }
 

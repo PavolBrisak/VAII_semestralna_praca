@@ -28,8 +28,8 @@
                         alt="{{$produkt->nazov}}" width="270"
                         height="170"></a></div>
             <div class="produkt-data">{{$produkt->nazov}}</div>
-            @if ($produkt->zlava)
-                <div class="produkt-data"><s>{{$produkt->cena}} €</s> {{$produkt->cena - $produkt->zlava}} €</div>
+            @if ($produkt->je_v_zlave)
+                <div class="produkt-data"><s>{{$produkt->cena}} €</s> {{$produkt->cena_zlava}} €</div>
             @else
                 <div class="produkt-data">{{$produkt->cena}} €</div>
             @endif

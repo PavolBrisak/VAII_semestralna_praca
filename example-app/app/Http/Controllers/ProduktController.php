@@ -11,20 +11,29 @@ use Illuminate\View\View;
 
 class ProduktController extends Controller
 {
-    public function vlozit_produkt_index(Request $request): RedirectResponse
+    public function vlozit_produkt_index(Request $request): View
     {
         $request->validate([
             'name' => 'required',
             'description' => 'required',
             'price' => 'required',
             'category' => 'required',
-            'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
+        ], [
+            'name.required' => 'Nevyplnili ste názov',
+            'description.required' => 'Nevyplnili ste popis',
+            'price.required' => 'Nevyplnili ste cenu',
+            'category.required' => 'Nevybrali ste kategóriu',
+            'picture.required' => 'Nevybrali ste obrázok',
+            'picture.image' => 'Súbor musí byť obrázok',
+            'picture.mimes' => 'Súbor musí byť obrázok',
+            'picture.max' => 'Súbor musí byť menší ako 4MB',
         ]);
+
+        $picturePath = null;
 
         if ($request->hasFile('picture')) {
             $picturePath = $request->file('picture')->store('obrazok_folder', 'public');
-        } else {
-            $picturePath = null;
         }
 
         $product = Produkt::create([
@@ -35,13 +44,14 @@ class ProduktController extends Controller
             'obrazok' => $picturePath,
         ]);
 
-        return redirect()->route('app_index');
+        $categories = ['Kvetinky', 'Jedlo', 'Pucky', 'Tvary', 'Vianočné', 'Srdiečka', 'Smajlíky', 'Pride', 'Kamienky', 'Memes', 'Ostatné'];
+        return view('vlozit-produkt', ['success' => 'Produkt bol vložený'], compact('categories'));
     }
 
     public function vlozit_produkt(): View
     {
-        return view('vlozit-produkt', [
-        ]);
+        $categories = ['Kvetinky', 'Jedlo', 'Pucky', 'Tvary', 'Vianočné', 'Srdiečka', 'Smajlíky', 'Pride', 'Kamienky', 'Memes', 'Ostatné'];
+        return view('vlozit-produkt', compact('categories'));
     }
 
     public function upravit_produkt_index(): View

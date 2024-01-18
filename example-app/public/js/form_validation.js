@@ -150,12 +150,13 @@ function checkHeslo() {
     }
 }
 
-function validateFormVlozirProdukt() {
+function validateFormVlozitProdukt() {
     let nazov = document.getElementById("name").value;
     let cena = document.getElementById("price").value;
     let category = document.getElementById("category").value;
     let popis = document.getElementById("description").value;
-    let obrazok = document.getElementById("picture").value;
+    let obrazok = document.getElementById("picture").files[0];
+
 
     if (nazov === "" || cena === "" || popis === "" || obrazok === "") {
         alert("Prosím vyplňte všetky údaje");

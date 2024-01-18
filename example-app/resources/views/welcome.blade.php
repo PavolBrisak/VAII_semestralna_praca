@@ -34,50 +34,27 @@
 </div>
 <div class="podnadpis">
     <ul>
-        <li>Zlacnené produkty</li>
+        <li>Náhodný výber</li>
     </ul>
 </div>
 <div class="produkt-form">
-    <div class="produkt">
-        <div class="produkt-obrazok"><a href="#"><img src="{{url('images/kategorie/pride/pride-srdiecka.jpg')}}"
-                                                      alt="Pride srdiečka" width="270"
-                                                      height="170"></a></div>
-        <div class="produkt-data">Pride srdiečka</div>
-        <div class="produkt-data"><s>1,90 €</s> 1,70 €</div>
-        <div class="produkt-button">
-            <button class="produkt-button">Zobraziť viac</button>
+    @foreach($produktyNahodnyVyber as $produkt)
+        <div class="produkt">
+            <div class="produkt-obrazok"><a href="{{ route('app_produkt', ['id' => $produkt->id]) }}"><img
+                        src="{{url('storage/'.$produkt->obrazok)}}"
+                        alt="{{$produkt->nazov}}" width="270"
+                        height="170"></a></div>
+            <div class="produkt-data">{{$produkt->nazov}}</div>
+            @if ($produkt->je_v_zlave)
+                <div class="produkt-data"><s>{{$produkt->cena}} €</s> {{$produkt->cena_zlava}} €</div>
+            @else
+                <div class="produkt-data">{{$produkt->cena}} €</div>
+            @endif
+            <div class="produkt-button">
+                <button class="produkt-button">Zobraziť viac</button>
+            </div>
         </div>
-    </div>
-    <div class="produkt">
-        <div class="produkt-obrazok"><a href="#"><img src="{{url('images/kategorie/memes/LOL-face.jpg')}}" alt="LOL Face"
-                                                      width="270"
-                                                      height="170"></a></div>
-        <div class="produkt-data">LOL Face</div>
-        <div class="produkt-data"><s>2,30 €</s> 2,00 €</div>
-        <div class="produkt-button">
-            <button class="produkt-button">Zobraziť viac</button>
-        </div>
-    </div>
-    <div class="produkt">
-        <div class="produkt-obrazok"><a href="#"><img src="{{url('images/kategorie/kvetinky/tyrkysove-kvietky.jpg')}}"
-                                                      alt="Tyrkysové kvetinky" width="270"
-                                                      height="170"></a></div>
-        <div class="produkt-data">Tyrkysové kvetinky</div>
-        <div class="produkt-data"><s>2,00 €</s> 1,75 €</div>
-        <div class="produkt-button">
-            <button class="produkt-button">Zobraziť viac</button>
-        </div>
-    </div>
-    <div class="produkt">
-        <div class="produkt-obrazok"><a href="#"><img src="{{url('images/kategorie/vianocne/vianocne-gule-cervene.jpg')}}"
-                                                      alt="Vianočné gule červené" width="270"
-                                                      height="170"></a></div>
-        <div class="produkt-data">Vianočné gule červené</div>
-        <div class="produkt-data"><s>2,00 €</s> 1,80 €</div>
-        <div class="produkt-button">
-            <button class="produkt-button">Zobraziť viac</button>
-        </div>
-    </div>
+    @endforeach
 </div>
 <div class="podnadpis">
     <ul>
@@ -85,69 +62,23 @@
     </ul>
 </div>
 <div class="produkt-form">
-    <div class="produkt">
-        <div class="produkt-obrazok"><a href="#"><img src="{{url('images/kategorie/kvetinky/bielo-fialove-kvietky.jpg')}}" alt="Bielo-fialové kvetinky" width="270"
-                                                      height="170"></a></div>
-        <div class="produkt-data">Bielo-fialové kvetinky</div>
-        <div class="produkt-data">1,70 €</div>
-        <div class="produkt-button">
-            <button class="produkt-button">Zobraziť viac</button>
+    @foreach($produktyNovinky as $produkt)
+        <div class="produkt">
+            <div class="produkt-obrazok"><a href="{{ route('app_produkt', ['id' => $produkt->id]) }}"><img
+                        src="{{url('storage/'.$produkt->obrazok)}}"
+                        alt="{{$produkt->nazov}}" width="270"
+                        height="170"></a></div>
+            <div class="produkt-data">{{$produkt->nazov}}</div>
+            @if ($produkt->je_v_zlave)
+                <div class="produkt-data"><s>{{$produkt->cena}} €</s> {{$produkt->cena_zlava}} €</div>
+            @else
+                <div class="produkt-data">{{$produkt->cena}} €</div>
+            @endif
+            <div class="produkt-button">
+                <button class="produkt-button">Zobraziť viac</button>
+            </div>
         </div>
-    </div>
-    <div class="produkt">
-        <div class="produkt-obrazok"><a href="#"><img src="{{url('images/kategorie/smajliky/pacman.jpg')}}" alt="Pacman" width="270"
-                                                      height="170"></a></div>
-        <div class="produkt-data">Pacman</div>
-        <div class="produkt-data">1,40 €</div>
-        <div class="produkt-button">
-            <button class="produkt-button">Zobraziť viac</button>
-        </div>
-    </div>
-    <div class="produkt">
-        <div class="produkt-obrazok"><a href="#"><img src="{{url('images/kategorie/memes/girl-face.jpg')}}" alt="Girl face" width="270"
-                                                      height="170"></a></div>
-        <div class="produkt-data">Girl face</div>
-        <div class="produkt-data">1,75 €</div>
-        <div class="produkt-button">
-            <button class="produkt-button">Zobraziť viac</button>
-        </div>
-    </div>
-    <div class="produkt">
-        <div class="produkt-obrazok"><a href="#"><img src="{{url('images/kategorie/srdiecka/zlomene-srdce.jpg')}}" alt="Zlomené srdce" width="270"
-                                                      height="170"></a></div>
-        <div class="produkt-data">Zlomené srdce</div>
-        <div class="produkt-data">1,80 €</div>
-        <div class="produkt-button">
-            <button class="produkt-button">Zobraziť viac</button>
-        </div>
-    </div>
-    <div class="produkt">
-        <div class="produkt-obrazok"><a href="#"><img src="{{url('images/kategorie/ostatne/fuzy.jpg')}}" alt="Fúzy" width="270"
-                                                      height="170"></a></div>
-        <div class="produkt-data">Fúzy</div>
-        <div class="produkt-data">1,90 €</div>
-        <div class="produkt-button">
-            <button class="produkt-button">Zobraziť viac</button>
-        </div>
-    </div>
-    <div class="produkt">
-        <div class="produkt-obrazok"><a href="#"><img src="{{url('images/kategorie/kvetinky/biele-kvietky.jpg')}}" alt="Biele kvietky" width="270"
-                                                      height="170"></a></div>
-        <div class="produkt-data">Biele kvietky</div>
-        <div class="produkt-data">1,50 €</div>
-        <div class="produkt-button">
-            <button class="produkt-button">Zobraziť viac</button>
-        </div>
-    </div>
-    <div class="produkt">
-        <div class="produkt-obrazok"><a href="#"><img src="{{url('images/kategorie/kvetinky/cervene-kvetinky.jpg')}}" alt="Červené kvetinky" width="270"
-                                                      height="170"></a></div>
-        <div class="produkt-data">Červené kvetinky</div>
-        <div class="produkt-data">1,50 €</div>
-        <div class="produkt-button">
-            <button class="produkt-button">Zobraziť viac</button>
-        </div>
-    </div>
+    @endforeach
 </div>
 <div class="benefit-uvod">
     <div class="benefit-item">
