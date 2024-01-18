@@ -1,13 +1,40 @@
-/* Add your styling for the filter elements here */
+.filtrovanie {
+    display: flex;
+}
+
 .filter {
+    flex: 1;
     background-color: #f4f4f4;
     padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 8px;
+    height: 100%;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.produkt-form {
+    flex: 2;
+}
+
+.produkt-form .pagination-container {
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.filter form {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.filter label, .filter input, .filter button {
+    margin-bottom: 10px;
 }
 
 #filterForm {
-    display: flex;
+    display: block;
     flex-wrap: wrap;
 }
 
@@ -24,7 +51,6 @@ select, input[type="range"], input[type="checkbox"], button {
     margin-left: 10px;
 }
 
-/* Style the button */
 button {
     background-color: #007bff;
     color: #fff;
@@ -38,13 +64,11 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* Add styles for the range input */
 input[type="range"] {
-    width: 80%;
+    width: 75%;
     margin-right: 10px;
 }
 
-/* Add styles for the checkbox */
 input[type="checkbox"] {
     margin-left: 5px;
 }

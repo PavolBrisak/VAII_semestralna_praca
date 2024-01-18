@@ -38,6 +38,7 @@ function updateQuantity(element) {
             location.reload();
         },
         error: function (error) {
+            $("#form-error-mnozstvo").show();
             console.log(error);
         }
     });
@@ -121,10 +122,107 @@ function validateFormUpravitProdukt(element)
             _token: $('meta[name="csrf-token"]').attr('content'),
         },
         success: function (response) {
-            $("#success").css("display", "block");
+            $("#success").show().delay(3000).fadeOut();
         },
         error: function (error) {
             console.log(error);
         },
+    });
+}
+
+function filterOrdersDate(element) {
+    $.ajax({
+        url: "/ajax/filterOrdersDate",
+        method: "POST",
+        data: {
+            _token: $('meta[name="csrf-token"]').attr('content'),
+        },
+        success: function (response) {
+            $("#objednavky").html(response.htmlContent);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function filterOrdersStatus(element) {
+    let stav = $(element).find("#status").val();
+    console.log(stav);
+    $.ajax({
+        url: "/ajax/filterOrdersStatus",
+        method: "POST",
+        data: {
+            stav: stav,
+            _token: $('meta[name="csrf-token"]').attr('content'),
+        },
+        success: function (response) {
+            $("#objednavky").html(response.htmlContent);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function filterOrdersCustomer(element) {
+    let customer = $(element).find("#userInput").val();
+
+    $.ajax({
+        url: "/ajax/filterOrdersCustomer",
+        method: "POST",
+        data: {
+            customer: customer,
+            _token: $('meta[name="csrf-token"]').attr('content'),
+        },
+        success: function (response) {
+            $("#objednavky").html(response.htmlContent);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function filterOrdersById(element) {
+    let orderId = $(element).find("#oderInput").val();
+
+    $.ajax({
+        url: "/ajax/filterOrdersById",
+        method: "POST",
+        data: {
+            orderId: orderId,
+            _token: $('meta[name="csrf-token"]').attr('content'),
+        },
+        success: function (response) {
+            console.log(response.objednavka);
+            $("#objednavky").html(response.htmlContent);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function updateOrderStatus(element) {
+    let orderId = $(element).data('order-id');
+    let newStatus = $(element).find("#status").val();
+    console.log(orderId);
+    console.log(newStatus);
+    $.ajax({
+        url: "/ajax/updateOrderStatus",
+        method: "POST",
+        data: {
+            orderId: orderId,
+            newStatus: newStatus,
+            _token: $('meta[name="csrf-token"]').attr('content'),
+        },
+        success: function (response) {
+            console.log(response.success);
+            $("#objednavka").html(response.htmlContent);
+        },
+        error: function (error) {
+            console.log(error);
+        }
     });
 }

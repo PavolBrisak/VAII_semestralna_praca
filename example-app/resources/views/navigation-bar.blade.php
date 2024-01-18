@@ -26,7 +26,7 @@
         <li><a href={{route('app_kontakt')}}>Kontakty</a></li>
         @auth
             @if(auth()->user()->email == 'admin@gmail.com')
-                <li class="navigation-bar-list-admin"><a class="navigation-bar-list-admin" href="{{route('app_upravit_objednavky') }}">Upraviť objednávky</a></li>
+                <li class="navigation-bar-list-admin"><a class="navigation-bar-list-admin" href="{{route('app_upravit_objednavky_index') }}">Upraviť objednávky</a></li>
                 <li class="navigation-bar-list-admin"><a class="navigation-bar-list-admin" href="{{route('app_upravit_produkt_index') }}">Upraviť produkt</a></li>
                 <li class="navigation-bar-list-admin"><a class="navigation-bar-list-admin" href="{{route('app_vlozit_produkt') }}">Vložiť produkt</a></li>
             @endif

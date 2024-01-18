@@ -18,7 +18,7 @@
 @include('header')
 @include('search')
 @include('navigation-bar')
-<div class="alert-success" id="success" hidden>
+<div class="alert-success" id="success">
     <ul>
         <li>Produkt bol upravený</li>
     </ul>

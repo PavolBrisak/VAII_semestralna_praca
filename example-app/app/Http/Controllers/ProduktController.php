@@ -6,6 +6,7 @@ use App\Models\Produkt;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class ProduktController extends Controller
@@ -45,9 +46,8 @@ class ProduktController extends Controller
 
     public function upravit_produkt_index(): View
     {
-        $produkty = Produkt::all();
         return view('upravit-produkt', [
-            'produkty' => $produkty,
+            'produkty' => DB::table('produkts')->paginate(6),
         ]);
     }
 

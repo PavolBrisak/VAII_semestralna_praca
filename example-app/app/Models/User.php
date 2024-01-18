@@ -43,14 +43,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Objednavka::class, 'customer_id');
     }
-
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    public function getEmail(): string
-    {
-        return $this->email;
-    }
 }

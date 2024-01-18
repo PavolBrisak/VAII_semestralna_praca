@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{url('styles/hlavna-stranka.css')}}">
     <link rel="stylesheet" href="{{url('styles/moj-ucet.css')}}">
     <link rel="stylesheet" href="{{url('styles/filtrovanie.css')}}">
+    <link rel="stylesheet" href="{{url('styles/paginate.css')}}">
     <script src="{{url('js/main.js')}}"></script>
 </head>
 <body>
@@ -21,42 +22,54 @@
 <div class="nadpis">
     <p>Upraviť produkt</p>
 </div>
-<div>
+<div class="filtrovanie">
     <div class="filter">
         <form id="filterForm">
-            <label for="kategorie">Kategorie:</label>
-            <select name="kategorie" id="kategorie">
-                <option value="Kvetinky">Kvetinky</option>
-                <option value="Jedlo">Jedlo</option>
-                <option value="Pucky">Pucky</option>
-                <option value="Tvary">Tvary</option>
-                <option value="Vianočné">Vianočné</option>
-                <option value="Srdiečka">Srdiečka</option>
-                <option value="Smajlíky">Smajlíky</option>
-                <option value="Pride">Pride</option>
-                <option value="Kamienky">Kamienky</option>
-                <option value="Memes">Memes</option>
-                <option value="Ostatné">Ostatné</option>
-            </select>
+            <div class="form-group">
+                <label for="kategorie">Kategorie:</label>
+                <select name="kategorie" id="kategorie">
+                    <option value="Všetky">Všetky</option>
+                    <option value="Kvetinky">Kvetinky</option>
+                    <option value="Jedlo">Jedlo</option>
+                    <option value="Pucky">Pucky</option>
+                    <option value="Tvary">Tvary</option>
+                    <option value="Vianočné">Vianočné</option>
+                    <option value="Srdiečka">Srdiečka</option>
+                    <option value="Smajlíky">Smajlíky</option>
+                    <option value="Pride">Pride</option>
+                    <option value="Kamienky">Kamienky</option>
+                    <option value="Memes">Memes</option>
+                    <option value="Ostatné">Ostatné</option>
+                </select>
+            </div>
 
-            <label for="cena">Cena:</label>
-            <input type="range" name="cena" id="cena" min="0" max="50" value="0">
-            <span id="cenaValue">0 €</span>
+            <div class="form-group">
+                <label for="cena">Cena:</label>
+                <input type="range" name="cena" id="cena" min="0" max="50" value="0">
+                <span id="cenaValue">0 €</span>
+            </div>
 
-            <label for="onSale">Je v zľave:</label>
-            <input type="checkbox" name="onSale" id="onSale">
+            <div class="form-group">
+                <label for="onSale">Je v zľave:</label>
+                <input type="checkbox" name="onSale" id="onSale">
+            </div>
 
-            <button type="button" onclick="filterProducts(this)">Filtrovat</button>
+            <div class="form-group">
+                <button type="button" onclick="filterProducts(this)">Filtrovat</button>
+            </div>
         </form>
     </div>
     @if ($produkty->isEmpty())
-        <div class="account-orders-null">
+        <div class="products-null">
             <p>Nemáte žiadne produkty</p>
         </div>
     @else
-    <div class="produkt-form" id="produkty">
-        @include('products_partial')
-    </div>
+        <div class="produkt-form" id="produkty">
+            @include('products_partial')
+            <div class="pagination-container">
+                {{ $produkty->links() }}
+            </div>
+        </div>
     @endif
 </div>
 @include('footer')

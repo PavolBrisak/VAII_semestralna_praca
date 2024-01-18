@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Objednavka;
 use App\Models\Produkt;
 use App\Models\Produkt_v_kosiku;
+use App\Models\User;
 use http\Env\Response;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class AjaxController extends Controller
@@ -66,15 +69,125 @@ class AjaxController extends Controller
         $priceTo = $request->input('priceTo');
         $onSale = $request->input('onSale');
 
-        $products = Produkt::where('kategoria', $category)
-            ->where('cena', '>=', $priceFrom)
-            ->where('cena', '<=', $priceTo)
-            ->where('je_v_zlave', $onSale == 'true' ? '1' : '0')
-            ->get();
+        if ($category == 'Všetky') {
+            $products = Produkt::all();
+        } else {
+            if ($priceTo == 0) {
+                $priceTo = 999999;
+            }
+            $products = Produkt::where('kategoria', $category)
+                ->where('cena', '>=', $priceFrom)
+                ->where('cena', '<=', $priceTo)
+                ->where('je_v_zlave', $onSale == 'true' ? '1' : '0')
+                ->get();
+        }
 
         $htmlContent = view('products_partial')->with('produkty', $products)->render();
 
         return response()->json([
+            'htmlContent' => $htmlContent,
+        ]);
+    }
+
+    public function filterOrdersDate(Request $request): JsonResponse
+    {
+        $objednavky = Objednavka::orderBy('created_at', 'desc')->get();
+
+        $htmlContent = view('upravit-objednavky-partial')->with('objednavky', $objednavky)->render();
+
+        return response()->json([
+            'htmlContent' => $htmlContent,
+        ]);
+    }
+
+    public function filterOrdersStatus(Request $request): JsonResponse
+    {
+        $status = $request->input('stav');
+
+        if ($status === 'Všetky') {
+            $objednavky = Objednavka::all();
+        } else {
+            $objednavky = Objednavka::where('status', $status)->get();
+        }
+
+        $htmlContent = view('upravit-objednavky-partial')->with('objednavky', $objednavky)->render();
+
+        return response()->json([
+            'htmlContent' => $htmlContent,
+        ]);
+    }
+
+    public function filterOrdersCustomer(Request $request): JsonResponse
+    {
+        $customer = $request->input('customer');
+        $objednavky = collect();
+
+        if (is_numeric($customer)) {
+            $objednavky = Objednavka::where('customer_id', $customer)->get();
+        } else if ($customer === null) {
+            $objednavky = Objednavka::all();
+        } else {
+            $users = User::where(function ($query) use ($customer) {
+                $query->where('name', 'like', '%' . $customer . '%')
+                    ->orWhere('surname', 'like', '%' . $customer . '%')
+                    ->orWhereRaw("CONCAT(name, ' ', surname) LIKE ?", ['%' . $customer . '%']);
+            })->get();
+            foreach ($users as $user) {
+                $objednavky = $objednavky->merge($user->objednavka);
+            }
+        }
+
+        $htmlContent = view('upravit-objednavky-partial')->with('objednavky', $objednavky)->render();
+
+        return response()->json([
+            'htmlContent' => $htmlContent,
+        ]);
+    }
+
+    public function filterOrdersById(Request $request): JsonResponse
+    {
+        $orderId = $request->input('orderId');
+
+        if ($orderId === null) {
+            $objednavka = Objednavka::all();
+        } else {
+            $objednavka = Objednavka::where('id', $orderId)->get();
+        }
+
+        if (!$objednavka) {
+            return response()->json([
+                'error' => 'Objednávka nebola nájdená.',
+            ], 404);
+        }
+
+        $htmlContent = view('upravit-objednavky-partial')->with('objednavky', $objednavka)->render();
+
+        return response()->json([
+            'objednavka' => $objednavka,
+            'htmlContent' => $htmlContent,
+        ]);
+    }
+
+    public function updateOrderStatus(Request $request): JsonResponse
+    {
+        $orderId = $request->input('orderId');
+        $newStatus = $request->input('newStatus');
+
+        $objednavka = Objednavka::find($orderId);
+        if (!$objednavka) {
+            return response()->json([
+                'error' => 'Objednávka nebola nájdená.',
+            ], 404);
+        }
+
+        $objednavka->update([
+            'status' => $newStatus,
+        ]);
+
+        $htmlContent = view('upravit-objednavky-partial')->with('objednavka', $objednavka)->render();
+
+        return response()->json([
+            'success' => 'Stav objednávky bol aktualizovaný.',
             'htmlContent' => $htmlContent,
         ]);
     }

@@ -8,6 +8,7 @@ use App\Models\Produkt_v_objednavke;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class ObjednavkaController extends Controller
@@ -36,7 +37,7 @@ class ObjednavkaController extends Controller
         $objednavka = Objednavka::create([
             'customer_id' => $user->id,
             'total_amount' => $totalAmount,
-            'status' => 'Vytvorena',
+            'status' => 'Vytvorená',
         ]);
 
         $kosik->each(function ($item) use ($objednavka) {
@@ -60,6 +61,25 @@ class ObjednavkaController extends Controller
         $objednavka = Objednavka::findOrFail($id);
 
         return view('vytvorena-objednavka', [
+            'objednavka' => $objednavka,
+        ]);
+    }
+
+    public function upravit_objednavky_index(): View
+    {
+        $objednavky = Objednavka::with('user')
+            ->paginate(10);
+
+        return view('upravit-objednavky', [
+            'objednavky' => $objednavky,
+        ]);
+    }
+
+    public function upravit_objednavky_id_index($id): View
+    {
+        $objednavka = Objednavka::with('user','produkt_v_objednavke')
+            ->findOrFail($id);
+        return view('upravit-objednavky-index', [
             'objednavka' => $objednavka,
         ]);
     }

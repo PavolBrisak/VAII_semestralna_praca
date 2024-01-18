@@ -30,7 +30,8 @@
                 <p>Názov produktu: {{ $cartItem->nazov }}</p>
                 <p>Počet kusov:
                     <label>
-                        <input type="number" min="1" value="{{ $cartItem->mnozstvo }}" oninput="updateQuantity(this)" class="quantity-input" data-product-id="{{ $cartItem->id }}" data-product-name="{{ $cartItem->nazov }}">
+                        <input id="mnozstvo" type="number" min="1" value="{{ $cartItem->mnozstvo }}" oninput="updateQuantity(this)" class="quantity-input" data-product-id="{{ $cartItem->id }}" data-product-name="{{ $cartItem->nazov }}">
+                        <span class="form-error" id="form-error-mnozstvo" hidden>Neplatné množstvo</span>
                     </label>
                 </p>
                 <p>Celková cena: {{ $cartItem->cena * $cartItem->mnozstvo }} €</p>

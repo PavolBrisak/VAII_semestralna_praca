@@ -63,7 +63,14 @@ Route::get('/upravit-produkt-index/id={id}', [ProduktController::class, 'upravit
 Route::post('/upravit-produkt', [ProduktController::class, 'upravit_produkt'])->name('app_upravit_produkt');
 
 Route::post('/ajax/filterProducts', [AjaxController::class, 'filterProducts'])->name('app_ajax_filterProducts');
-Route::get('/upravit-objednavky', [ObjednavkaController::class, 'upravit_objednavky'])->name('app_upravit_objednavky');
+Route::get('/upravit-objednavky-index', [ObjednavkaController::class, 'upravit_objednavky_index'])->name('app_upravit_objednavky_index');
+Route::any('/upravit-objednavky-index/id={id}', [ObjednavkaController::class, 'upravit_objednavky_id_index'])->name('app_upravit_objednavku');
+Route::post('/ajax/filterOrdersDate', [AjaxController::class, 'filterOrdersDate'])->name('app_ajax_filterOrdersDate');
+Route::post('/ajax/filterOrdersStatus', [AjaxController::class, 'filterOrdersStatus'])->name('app_ajax_filterOrdersStatus');
+Route::post('/ajax/filterOrdersCustomer', [AjaxController::class, 'filterOrdersCustomer'])->name('app_ajax_filterOrdersCustomer');
+Route::post('/ajax/filterOrdersById', [AjaxController::class, 'filterOrdersById'])->name('app_ajax_filterOrdersById');
+Route::post('/ajax/updateOrderStatus', [AjaxController::class, 'updateOrderStatus'])->name('app_ajax_updateOrderStatus');
+
 Route::post('/vlozit-produkt', [ProduktController::class, 'vlozit_produkt_index'])->name('app_vlozit_produkt');
 Route::get('/produkt/id={id}', [ProduktController::class, 'produkt'])->name('app_produkt');
 Route::get('/vyhladať', [ProduktController::class, 'vyhladat'])->name('app_vyhladaj');

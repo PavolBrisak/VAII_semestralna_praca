@@ -25,7 +25,6 @@
 @if ($errors->any())
     <div class="alert-danger">
         <ul>
-            <li>Došlo ku chybe pri prihlásení sa</li>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
