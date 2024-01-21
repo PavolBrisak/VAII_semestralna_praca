@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    @include('meta-info')
     <title>Košík</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ url('styles/hlavna-stranka.css') }}">
@@ -12,9 +10,9 @@
     <link rel="stylesheet" href="{{ url('styles/registracia.css') }}">
     <link rel="stylesheet" href="{{ url('styles/kosik.css') }}">
     <script src="{{ url('js/main.js') }}"></script>
-    <script src="{{ url('js/form_validation.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="{{ url('js/ajax.js') }}"></script>
+    <script src="{{ url('js/form_validation.js') }}"></script>
 </head>
 <body>
 @include('header')
@@ -43,10 +41,10 @@
         <div class="cart-total">
             <p>Celková suma: {{ $totalPrice }} €</p>
         </div>
-        <div class="cart-container-button">
-            <button class="cart-container-button-large"><a href="{{ route('app_vytvor_objednavku') }}">Objednať</a>
+        <form class="cart-container-button" onsubmit="return validateSendOrder()" action="{{ route('app_vytvor_objednavku') }}">
+            <button class="cart-container-button-large" id="cart-container-button" type="submit"><a>Objednať</a>
             </button>
-        </div>
+        </form>
     @else
         <p class="empty-cart">Váš košík je prázdny. Nechcete si <a href="{{ route('app_index') }}">vybrať produkt</a>?</p>
     @endif

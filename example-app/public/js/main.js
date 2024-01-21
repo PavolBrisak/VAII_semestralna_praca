@@ -1,23 +1,3 @@
-window.onscroll = function () {
-    let navbarElement = document.getElementById('navigation-bar');
-    if (window.scrollY >= navbarElement.offsetTop + navbarElement.offsetHeight) {
-        navbarElement.style.position = 'fixed';
-        navbarElement.style.top = '0';
-        navbarElement.style.width = '100%';
-        navbarElement.style.left = '0';
-        let listItems = navbarElement.querySelectorAll('ul li');
-        listItems.forEach(item => {
-            item.style.marginTop = '20px';
-        });
-    } else {
-        navbarElement.style.position = 'static';
-        let listItems = navbarElement.querySelectorAll('ul li');
-        listItems.forEach(item => {
-            item.style.marginTop = '0';
-        });
-    }
-};
-
 function showDropdownUser() {
     let dropdown = document.getElementById('dropdown');
     let dropdownContent = dropdown.querySelector('.dropdown-content');

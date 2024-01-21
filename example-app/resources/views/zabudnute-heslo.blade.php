@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @include('meta-info')
     <title>Môj účet</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{url('styles/hlavna-stranka.css')}}">
@@ -31,7 +30,7 @@
         <ul>
             <li>Zadajte svoj e-mail</li>
             <li><div class="spolusu"><label for="email">Email</label><span class="form-error" id="form-error-email" hidden>Neplatný email</span></div>
-                <input type="text" id="email" name="email" onblur="checkEmail()"></li>
+                <input type="text" id="email" name="email" onblur="checkEmail()" value="{{old('email')}}"></li>
             <li>
                 <button class="send-button" type="submit">Odoslať</button>
             </li>

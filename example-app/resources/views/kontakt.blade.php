@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @include('meta-info')
     <title>Kontakt</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{url('styles/hlavna-stranka.css')}}">
@@ -32,13 +31,14 @@
         <ul>
             <li>Kontaktuje nás</li>
             <li><div class="spolusu"><label for="meno">Meno</label><span class="form-error" id="form-error-meno" hidden>Meno musí začínať veľkým písmenom</span></div>
-                <input type="text" id="meno" name="meno" oninput="checkMeno()"></li>
+                <input type="text" id="meno" name="meno" oninput="checkMeno()" value="{{old('meno')}}"></li>
             <li><div class="spolusu"><label for="priezvisko">Priezvisko</label><span class="form-error" id="form-error-priezvisko" hidden>Priezvisko musí začínať veľkým písmenom</span></div>
-                <input type="text" id="priezvisko" name="priezvisko" oninput="checkPriezvisko()"></li>
+                <input type="text" id="priezvisko" name="priezvisko" oninput="checkPriezvisko()" value="{{old('priezvisko')}}"></li>
             <li><div class="spolusu"><label for="email">Email</label><span class="form-error" id="form-error-email" hidden>Neplatný email</span></div>
-                <input type="text" id="email" name="email" onblur="checkEmail()"></li>
+                <input type="text" id="email" name="email" onblur="checkEmail()" value="{{old('email')}}"></li>
             <li><label for="sprava">Správa</label>
-                <textarea id="sprava" name="sprava" oninput="changeFormHeightOnTextAreaScroll()"></textarea></li>
+                <textarea id="sprava" name="sprava" oninput="changeFormHeightOnTextAreaScroll()"></textarea>
+            </li>
             <li>
                 <button class="send-button" type="submit">Odoslať</button>
             </li>

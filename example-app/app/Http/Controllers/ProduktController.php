@@ -14,15 +14,17 @@ class ProduktController extends Controller
     public function vlozit_produkt_index(Request $request): View
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:produkts,nazov',
             'description' => 'required',
-            'price' => 'required',
+            'price' => 'required|numeric',
             'category' => 'required',
             'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
         ], [
+            'name.unique' => 'Produkt s týmto názvom už existuje',
             'name.required' => 'Nevyplnili ste názov',
             'description.required' => 'Nevyplnili ste popis',
             'price.required' => 'Nevyplnili ste cenu',
+            'price.numeric' => 'Cena musí byť číslo',
             'category.required' => 'Nevybrali ste kategóriu',
             'picture.required' => 'Nevybrali ste obrázok',
             'picture.image' => 'Súbor musí byť obrázok',

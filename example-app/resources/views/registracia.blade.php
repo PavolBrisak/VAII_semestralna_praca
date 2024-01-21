@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @include('meta-info')
     <title>Vytvorenie uctu</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{url('styles/hlavna-stranka.css')}}">
@@ -35,17 +34,17 @@
 
                 <li>Osobné informácie</li>
                 <li><div class="spolusu"><label for="meno">Meno</label><span class="form-error" id="form-error-meno" hidden>Meno musí začínať veľkým písmenom</span></div>
-                    <input type="text" id="meno" name="meno" oninput="checkMeno()"></li>
+                    <input type="text" id="meno" name="meno" oninput="checkMeno()" value="{{old('meno')}}"></li>
                 <li><div class="spolusu"><label for="priezvisko">Priezvisko</label><span class="form-error" id="form-error-priezvisko" hidden>Priezvisko musí začínať veľkým písmenom</span></div>
-                    <input type="text" id="priezvisko" name="priezvisko" oninput="checkPriezvisko()"></li>
+                    <input type="text" id="priezvisko" name="priezvisko" oninput="checkPriezvisko()" value="{{old('priezvisko')}}"></li>
 
                 <li>Prihlasovacie informácie</li>
                 <li><div class="spolusu"><label for="email">Email</label><span class="form-error" id="form-error-email" hidden>Neplatný email</span></div>
-                    <input type="text" id="email" name="email" onblur="checkEmail()"></li>
+                    <input type="text" id="email" name="email" onblur="checkEmail()" value="{{old('email')}}"></li>
                 <li><div class="spolusu"><label for="heslo">Heslo</label><span class="form-error" id="form-error-heslo" hidden>Slabé heslo</span></div>
-                    <input type="password" id="heslo" name="heslo" oninput="checkHeslo()"></li>
+                    <input type="password" id="heslo" name="heslo" oninput="checkHeslo()" value="{{old('heslo')}}"></li>
                 <li><label for="heslo_potvrd">Potvrďte heslo</label>
-                    <input type="password" id="heslo_potvrd" name="heslo_potvrd"></li>
+                    <input type="password" id="heslo_potvrd" name="heslo_potvrd" value="{{old('heslo_potvrd')}}"></li>
 
                 <li><button class="send-button">Vytvoriť účet</button></li>
             </ul>

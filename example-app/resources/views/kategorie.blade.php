@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @include('meta-info')
     <title>Kategórie</title>
     <link rel="stylesheet" href="{{url('styles/hlavna-stranka.css')}}">
     <link rel="stylesheet" href="{{url('styles/kosik.css')}}">
@@ -33,7 +32,7 @@
                 <div class="produkt-data">{{$produkt->cena}} €</div>
             @endif
             <div class="produkt-button">
-                <button class="produkt-button">Zobraziť viac</button>
+                <button class="produkt-button"><a href="{{ route('app_produkt', ['id' => $produkt->id]) }}">Zobraziť viac</a></button>
             </div>
         </div>
     @endforeach

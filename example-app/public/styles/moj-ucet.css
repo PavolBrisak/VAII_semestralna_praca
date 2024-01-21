@@ -166,3 +166,19 @@
 .account-products-in-order-body-item tr:hover {
     background-color: #f0f0f0;
 }
+
+@media (max-width: 768px) {
+    .account-container {
+        flex-direction: column;
+    }
+
+    .account-sidebar {
+        width: 100%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .account-content {
+        width: 100%;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+}

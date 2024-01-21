@@ -72,3 +72,13 @@ input[type="range"] {
 input[type="checkbox"] {
     margin-left: 5px;
 }
+
+@media (max-width: 768px) {
+    .filtrovanie {
+        flex-direction: column;
+    }
+
+    .produkt-form {
+        margin-top: 10px;
+    }
+}

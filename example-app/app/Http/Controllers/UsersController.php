@@ -25,7 +25,7 @@ class UsersController extends Controller
     public function moje_objednavky(): View
     {
         $user = Auth::user();
-        $objednavky = $user->objednavka()->paginate(10);
+        $objednavky = $user->objednavka()->orderBy('created_at', 'desc')->paginate(10);
         return view('moje-objednavky', compact('objednavky'));
     }
 
@@ -36,19 +36,21 @@ class UsersController extends Controller
         return view('zobraz-objednavku', compact('objednavka', 'produktyVObjednavke'));
     }
 
-    public function zmena_mena(Request $request): View
+    public function zmena_mena(Request $request): RedirectResponse
     {
         $user = Auth::user();
 
         $request->validate([
-            'meno' => 'required',
-        ]);
+            'meno' => 'required|string|max:255',
+        ], [
+            'meno.required' => 'Prosím, zadajte meno',
+            'meno.max' => 'Meno môže mať maximálne 255 znakov',]);
 
         $user->update([
             'name' => $request->input('meno'),
         ]);
 
-        return view('ucet', compact('user'));
+        return redirect()->route('app_ucet');
     }
 
     public function zmena_hesla_index(): View
@@ -56,7 +58,7 @@ class UsersController extends Controller
         return view('zmena-hesla');
     }
 
-    public function zmena_hesla(Request $request): View
+    public function zmena_hesla(Request $request): RedirectResponse
     {
         $user = Auth::user();
 
@@ -74,7 +76,7 @@ class UsersController extends Controller
             'password' => $request->input('heslo'),
         ]);
 
-        return view('ucet', compact('user'));
+        return redirect()->route('app_ucet');
     }
 
 
@@ -108,7 +110,7 @@ class UsersController extends Controller
 
         $user->delete();
 
-        return redirect()->route('app_prihlasenie')->withSuccess('Účet bol úspešne zrušený.');
+        return redirect()->route('app_prihlasenie', ['success' => 'Účet bol úspešne zrušený.']);
     }
 
 }

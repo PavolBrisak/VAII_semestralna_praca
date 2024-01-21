@@ -78,6 +78,11 @@
     margin-bottom: 15px;
 }
 
+.products-null {
+    font-size: 25px;
+    font-weight: bold;
+}
+
 @media (max-width: 768px) {
     .kontakt-form {
         padding: 10px;

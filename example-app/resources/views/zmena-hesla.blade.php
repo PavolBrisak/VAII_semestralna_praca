@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakt</title>
+    @include('meta-info')
+    <title>Zmena hesla</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{url('styles/hlavna-stranka.css')}}">
     <link rel="stylesheet" href="{{url('styles/zmena-hesla.css')}}">
@@ -32,10 +31,10 @@
         <ul>
             <li>Zmente si heslo</li>
             <li><div class="spolusu"><label for="heslo">Nové heslo</label><span class="form-error" id="form-error-heslo" hidden>Slabé heslo</span></div>
-                <input type="password" id="heslo" name="heslo" oninput="checkHeslo()">
+                <input type="password" id="heslo" name="heslo" oninput="checkHeslo()" value="{{old('heslo')}}">
             </li>
             <li><div class="spolusu"><label for="heslo_potvrd">Znova zadajte nové heslo</label></div>
-                <input type="password" id="heslo_potvrd" name="heslo_potvrd">
+                <input type="password" id="heslo_potvrd" name="heslo_potvrd" value="{{old('heslo_potvrd')}}">
             </li>
             <li>
                 <button class="send-button" type="submit">Odoslať</button>

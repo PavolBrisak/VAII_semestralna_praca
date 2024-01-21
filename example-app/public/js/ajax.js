@@ -25,6 +25,10 @@ function updateQuantity(element) {
     let productName = $(element).data('product-name');
     let newQuantity = $(element).val();
 
+    console.log(productId);
+    console.log(productName);
+    console.log(newQuantity);
+
     $.ajax({
         url: "/ajax/updateQuantity",
         method: "POST",
@@ -60,7 +64,6 @@ function filterProducts() {
             _token: $('meta[name="csrf-token"]').attr('content'),
         },
         success: function (response) {
-            console.log(response.htmlContent);
             $("#produkty").html(response.htmlContent);
         },
         error: function (error) {
@@ -122,7 +125,7 @@ function validateFormUpravitProdukt(element)
             _token: $('meta[name="csrf-token"]').attr('content'),
         },
         success: function (response) {
-            $("#success").show().delay(3000).fadeOut();
+           alert("Produkt bol upravený");
         },
         error: function (error) {
             console.log(error);
@@ -131,10 +134,15 @@ function validateFormUpravitProdukt(element)
 }
 
 function filterOrdersDate(element) {
+    let stav = $(element).find("#status").val();
+    let customer = $(element).find("#userInput").val();
+
     $.ajax({
         url: "/ajax/filterOrdersDate",
         method: "POST",
         data: {
+            stav: stav,
+            customer: customer,
             _token: $('meta[name="csrf-token"]').attr('content'),
         },
         success: function (response) {
@@ -148,7 +156,7 @@ function filterOrdersDate(element) {
 
 function filterOrdersStatus(element) {
     let stav = $(element).find("#status").val();
-    console.log(stav);
+
     $.ajax({
         url: "/ajax/filterOrdersStatus",
         method: "POST",
@@ -218,7 +226,6 @@ function updateOrderStatus(element) {
             _token: $('meta[name="csrf-token"]').attr('content'),
         },
         success: function (response) {
-            console.log(response.success);
             $("#objednavka").html(response.htmlContent);
         },
         error: function (error) {

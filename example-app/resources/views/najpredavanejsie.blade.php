@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @include('meta-info')
     <title>Najpredávanejšie náušky</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{url('styles/hlavna-stranka.css')}}">
@@ -34,12 +32,11 @@
                 <div class="produkt-data">{{$produkt->cena}} €</div>
             @endif
             <div class="produkt-button">
-                <button class="produkt-button">Zobraziť viac</button>
+                <button class="produkt-button"><a href="{{ route('app_produkt', ['id' => $produkt->id]) }}">Zobraziť viac</a></button>
             </div>
         </div>
     @endforeach
 </div>
-<div class="filler"></div>
 @include('footer')
 </body>
 </html>

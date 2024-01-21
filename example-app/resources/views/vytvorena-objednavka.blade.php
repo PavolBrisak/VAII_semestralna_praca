@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @include('meta-info')
     <title>Vytvorenie objednávky</title>
     <link rel="stylesheet" href="{{url('styles/hlavna-stranka.css')}}">
     <link rel="stylesheet" href="{{url('styles/kosik.css')}}">
@@ -25,6 +24,7 @@
 </div>
 <div class="nova-objednavka-button">
     <button><a href="{{ route('app_index') }}">Späť na titulnú stránku</a></button>
+    <button><a href="{{ route('app_moje_objednavky') }}">Zobraziť moje objednávky</a></button>
 </div>
 @include('footer')
 </body>

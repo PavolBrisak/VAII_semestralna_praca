@@ -15,12 +15,12 @@ function validateFormKontakt() {
         return false;
     }
 
-    if (!/^[A-Z]/.test(meno)) {
+    if (!/^\p{Lu}/u.test(meno)) {
         alert("Meno musí začínať veľkým písmenom");
         return false;
     }
 
-    if (!/^[A-Z]/.test(priezvisko)) {
+    if (!/^\p{Lu}/u.test(priezvisko)) {
         alert("Priezvisko musí začínať veľkým písmenom");
         return false;
     }
@@ -58,12 +58,12 @@ function validateFormRegistracia() {
         return false;
     }
 
-    if (!/^[A-Z]/.test(meno)) {
+    if (!/^\p{Lu}/u.test(meno)) {
         alert("Meno musí začínať veľkým písmenom");
         return false;
     }
 
-    if (!/^[A-Z]/.test(priezvisko)) {
+    if (!/^\p{Lu}/u.test(priezvisko)) {
         alert("Priezvisko musí začínať veľkým písmenom");
         return false;
     }
@@ -83,11 +83,36 @@ function validateFormRegistracia() {
 }
 
 function validateFormZmenaMena() {
+    let meno = document.getElementById("meno").value;
 
+    if (meno === "") {
+        alert("Prosím vyplňte všetky údaje");
+        return false;
+    }
+
+    if (!/^\p{Lu}/u.test(meno)) {
+        alert("Meno musí začínať veľkým písmenom");
+        return false;
+    }
+
+    return true;
 }
 
 function validateFormZmenaHesla() {
+    let heslo = document.getElementById("heslo").value;
+    let heslo_potvrd = document.getElementById("heslo_potvrd").value;
 
+    if (heslo === "" || heslo_potvrd === "") {
+        alert("Prosím vyplňte všetky údaje");
+        return false;
+    }
+
+    if (heslo !== heslo_potvrd) {
+        alert("Heslá sa nezhodujú");
+        return false;
+    }
+
+    return true;
 }
 
 
@@ -163,7 +188,7 @@ function validateFormVlozitProdukt() {
         return false;
     }
 
-    if (!/^[A-Z]/.test(nazov)) {
+    if (!/^\p{Lu}/u.test(nazov)) {
         alert("Názov musí začínať veľkým písmenom");
         return false;
     }
@@ -179,4 +204,22 @@ function validateFormVlozitProdukt() {
     }
 
     return true;
+}
+
+function validateSendOrder() {
+    let mnozstvo = document.getElementById("mnozstvo").value;
+    let cart_mnozstvo = document.getElementById("cart-amount").value;
+    console.log(mnozstvo);
+    console.log(cart_mnozstvo);
+
+
+    if (mnozstvo === "" || mnozstvo === 0) {
+        alert("Prosím vyplňte množstvo");
+        return false;
+    }
+
+    if (mnozstvo > cart_mnozstvo) {
+        alert("Nedostatok tovaru na sklade");
+        return false;
+    }
 }

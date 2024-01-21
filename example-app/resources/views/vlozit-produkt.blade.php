@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    @include('meta-info')
     <title>Vložiť produkt</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -43,11 +41,11 @@
             <li>Vytvorte nový produkt</li>
             <li>
                 <label for="name">Názov produktu</label>
-                <input type="text" id="name" name="name">
+                <input type="text" id="name" name="name" value="{{old('name')}}">
             </li>
             <li>
                 <label for="price">Cena</label>
-                <input type="text" id="price" name="price">
+                <input type="text" id="price" name="price" value="{{old('price')}}">
             </li>
             <li>
                 <label for="category">Kategória</label>
@@ -63,7 +61,7 @@
             </li>
             <li>
                 <label for="description">Popis</label>
-                <input type="text" id="description" name="description">
+                <input type="text" id="description" name="description" value="{{old('description')}}">
             <li>
                 <button class="send-button" type="submit">Odoslať</button>
             </li>

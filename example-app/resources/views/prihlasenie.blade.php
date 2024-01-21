@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prihlasenie</title>
+    @include('meta-info')
+    <title>Prihlásenie</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{url('styles/hlavna-stranka.css')}}">
     <link rel="stylesheet" href="{{url('styles/prihlasenie.css')}}">
@@ -39,9 +38,10 @@
             <ul>
                 <li>Prihlásenie</li>
                 <li><div class="spolusu"><label for="email">Email</label><span class="form-error" id="form-error-email" hidden>Neplatný email</span></div>
-                    <input type="text" id="email" name="email" onblur="checkEmail()"></li>
+                    <input type="text" id="email" name="email" onblur="checkEmail()" value="{{old('email')}}"></li>
                 <li><label for="password">Heslo</label>
-                    <input type="password" id="password" name="password"></li>
+                    <input type="password" id="password" name="password" value="{{old('password')}}">
+                </li>
                 <li><button class="send-button" type="submit">Prihlásiť sa</button></li>
                 <li><a href="{{route('app_registracia')}}">Nemáte účet? Vytvorte si ho tu</a></li>
                 <li><a href="{{route('app_zabudnute-heslo')}}">Zabudnuté heslo?</a></li>

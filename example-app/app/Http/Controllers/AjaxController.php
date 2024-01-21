@@ -25,6 +25,23 @@ class AjaxController extends Controller
         ]);
     }
 
+    public function sendOrder(Request $request): JsonResponse
+    {
+        $mnozstvo = $request->input('mnozstvo');
+        $produktId = $request->input('id');
+        $produkt = Produkt::where('id', $produktId)->first();
+        $naSklade = $produkt->na_sklade;
+        if ($mnozstvo > $naSklade) {
+            return response()->json([
+                'error' => 'Požadované množstvo nie je dostupné na sklade.',
+            ], 422);
+        } else {
+            return response()->json([
+                'success' => 'Objednávka bola úspešne vytvorená.',
+            ]);
+        }
+    }
+
     public function updateQuantity(Request $request): JsonResponse
     {
         $produktCartId = $request->input('productId');
@@ -68,18 +85,21 @@ class AjaxController extends Controller
         $priceFrom = $request->input('priceFrom');
         $priceTo = $request->input('priceTo');
         $onSale = $request->input('onSale');
+        if ($priceTo == 0) {
+            $priceTo = 999999;
+        }
 
         if ($category == 'Všetky') {
-            $products = Produkt::all();
+            $products = Produkt::where('je_v_zlave', $onSale == 'true' ? '1' : '0')
+                ->where('cena', '>=', $priceFrom)
+                ->where('cena', '<=', $priceTo)
+                ->paginate(10);
         } else {
-            if ($priceTo == 0) {
-                $priceTo = 999999;
-            }
             $products = Produkt::where('kategoria', $category)
                 ->where('cena', '>=', $priceFrom)
                 ->where('cena', '<=', $priceTo)
                 ->where('je_v_zlave', $onSale == 'true' ? '1' : '0')
-                ->get();
+                ->paginate(10);
         }
 
         $htmlContent = view('products_partial')->with('produkty', $products)->render();
@@ -91,7 +111,30 @@ class AjaxController extends Controller
 
     public function filterOrdersDate(Request $request): JsonResponse
     {
-        $objednavky = Objednavka::orderBy('created_at', 'desc')->get();
+        $status = $request->input('stav');
+        $customer = $request->input('customer');
+
+        $objednavky = collect();
+
+        if (is_numeric($customer)) {
+            $objednavky = Objednavka::where('customer_id', $customer)->get();
+        } else if ($customer === null) {
+            $objednavky = Objednavka::all();
+        } else {
+            $users = User::where(function ($query) use ($customer) {
+                $query->where('name', 'like', '%' . $customer . '%')
+                    ->orWhere('surname', 'like', '%' . $customer . '%');
+            })->get();
+            foreach ($users as $user) {
+                $objednavky = $objednavky->merge($user->objednavka);
+            }
+        }
+
+        if ($status !== 'Všetky') {
+            $objednavky->where('status', $status);
+        }
+
+        $objednavky = $objednavky->orderBy('created_at', 'desc')->get();
 
         $htmlContent = view('upravit-objednavky-partial')->with('objednavky', $objednavky)->render();
 
@@ -129,8 +172,7 @@ class AjaxController extends Controller
         } else {
             $users = User::where(function ($query) use ($customer) {
                 $query->where('name', 'like', '%' . $customer . '%')
-                    ->orWhere('surname', 'like', '%' . $customer . '%')
-                    ->orWhereRaw("CONCAT(name, ' ', surname) LIKE ?", ['%' . $customer . '%']);
+                    ->orWhere('surname', 'like', '%' . $customer . '%');
             })->get();
             foreach ($users as $user) {
                 $objednavky = $objednavky->merge($user->objednavka);
