@@ -86,6 +86,6 @@ Route::get('/kategorie/{kategoria}', [ProduktController::class, 'kategoria'])->n
 Route::get('/vypredaj', [ProduktController::class, 'vypredaj'])->name('app_vypredaj');
 Route::get('/najpredavanejsie', [ProduktController::class, 'najpredavanejsie'])->name('app_najpredavanejsie');
 
-Route::get('/vytvor-objednavku', [ObjednavkaController::class, 'vytvor_objednavku'])->name('app_vytvor_objednavku');
+Route::get('/vytvor-objednavku', [ObjednavkaController::class, 'vytvor_objednavku'])->name('app_vytvor_objednavku')->middleware('auth');
 Route::post('/ajax/sendOrder', [AjaxController::class, 'sendOrder'])->name('app_ajax_sendOrder');
-Route::get('/objednavka/{id}', [ObjednavkaController::class, 'objednavka_detail'])->name('app_objednavka_detail');
+Route::get('/objednavka/{id}', [ObjednavkaController::class, 'objednavka_detail'])->name('app_objednavka_detail')->middleware('auth');

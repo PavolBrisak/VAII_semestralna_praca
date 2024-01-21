@@ -72,10 +72,17 @@ class ProduktController extends Controller
     public function upravit_produkt(Request $request): JsonResponse
     {
         $request->validate([
-            'nazov' => 'required',
+            'nazov' => 'required|unique:produkts,nazov,',
             'popis' => 'required',
-            'cena' => 'required',
+            'cena' => 'required|numeric',
             'category' => 'required',
+        ], [
+            'nazov.unique' => 'Produkt s týmto názvom už existuje',
+            'nazov.required' => 'Nevyplnili ste názov',
+            'popis.required' => 'Nevyplnili ste popis',
+            'cena.required' => 'Nevyplnili ste cenu',
+            'cena.numeric' => 'Cena musí byť číslo',
+            'category.required' => 'Nevybrali ste kategóriu',
         ]);
 
         $produkt = Produkt::findOrFail($request->input('id'));
@@ -115,7 +122,7 @@ class ProduktController extends Controller
 
     public function vypredaj(): View
     {
-        $produkty = Produkt::where('je_v_zlave', true)->get();
+        $produkty = Produkt::where('je_v_zlave', true)->take(20)->get();
 
         return view('vypredaj', [
             'produkty' => $produkty,

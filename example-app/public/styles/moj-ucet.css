@@ -173,12 +173,30 @@
     }
 
     .account-sidebar {
-        width: 100%;
+        width: 91%;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     .account-content {
         width: 100%;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        padding: 0;
+    }
+
+    .account-content table {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .account-content table th, .account-content table td {
+        white-space: nowrap;
+        text-wrap: inherit;
+        text-overflow: ellipsis;
+        padding: 5px;
+        font-size: 11px;
+    }
+
+    .account-orders a {
+        font-size: 11px;
     }
 }

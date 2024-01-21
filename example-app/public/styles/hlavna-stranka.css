@@ -608,11 +608,11 @@ body {
 
     .footer {
         flex-direction: column;
+        width: 95.5%;
     }
 
     .footer .footer-data {
         flex: 1;
-        padding: 20px;
         text-align: justify;
         border-right: none;
     }
@@ -627,5 +627,15 @@ body {
 
     .logo {
         width: 0;
+    }
+
+    .produkt-page {
+        flex-direction: column;
+    }
+
+    .produkt-page-image {
+        width: 400px;
+        height: 300px;
+        margin: 20px;
     }
 }

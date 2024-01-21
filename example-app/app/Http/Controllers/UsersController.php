@@ -112,5 +112,4 @@ class UsersController extends Controller
 
         return redirect()->route('app_prihlasenie', ['success' => 'Účet bol úspešne zrušený.']);
     }
-
 }

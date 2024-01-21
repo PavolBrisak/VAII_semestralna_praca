@@ -11,8 +11,7 @@
     <div class="footer-data">
         <ul>
             <li>O našom obchode</li>
-            <li><a href="#">Výpredaj</a></li>
-            <li><a href="#">Kategórie</a></li>
+            <li><a href="{{route('app_vypredaj')}}">Výpredaj</a></li>
             <li><a href="{{route('app_kontakt')}}">Kontakty</a></li>
             <li><br></li>
         </ul>

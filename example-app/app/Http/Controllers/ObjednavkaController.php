@@ -15,14 +15,12 @@ class ObjednavkaController extends Controller
 {
     public function vytvor_objednavku(): RedirectResponse
     {
-        if (!Auth::check()) {
-            return redirect()->route('app_prihlasenie')->withErrors([
-                'prihlasenie' => 'Prosím, prihláste sa pre vytvorenie objednávky.',
-            ]);
-        }
-
         $user = Auth::user();
         $kosik = $user->kosik;
+
+        if ($kosik->count() === 0) {
+            return redirect()->route('app_kosik');
+        }
 
         $kosik->each(function ($item) {
             $product = Produkt::where('nazov', $item->nazov)->first();

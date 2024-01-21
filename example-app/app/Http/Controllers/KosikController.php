@@ -13,12 +13,6 @@ class KosikController extends Controller
 {
     public function kosik(): View
     {
-        if (!Auth::check()) {
-            return view('prihlasenie')->withErrors([
-                'prihlasenie' => 'Prosím, prihláste sa pre zobrazenie košíka.',
-            ]);
-        }
-
         $cartItems = Auth::user()->kosik;
         $totalPrice = $cartItems->sum(function ($item) {
             return $item->cena * $item->mnozstvo;
@@ -29,19 +23,13 @@ class KosikController extends Controller
 
     public function pridat_do_kosika($produktId): RedirectResponse
     {
-        if (!Auth::check()) {
-            return redirect()->route('app_prihlasenie')->withErrors([
-                'prihlasenie' => 'Prosím, prihláste sa pre pridanie produktu do košíka.',
-            ]);
-        }
+        $produkt = Produkt::findOrFail($produktId);
 
         if (Produkt::where('id', $produktId)->first()->na_sklade <= 0) {
             return redirect()->route('app_produkt', ['id' => $produktId])->withErrors([
                 'produkt' => 'Produkt nie je dostupný na sklade.',
             ]);
         }
-
-        $produkt = Produkt::findOrFail($produktId);
 
         $existingProduct = Produkt_v_kosiku::where('user_id', Auth::id())
             ->where('nazov', $produkt->nazov)
@@ -63,12 +51,6 @@ class KosikController extends Controller
 
     public function vymazat_z_kosika($cartItemId): RedirectResponse
     {
-        if (!Auth::check()) {
-            return redirect()->route('app_prihlasenie')->withErrors([
-                'prihlasenie' => 'Prosím, prihláste sa pre vymazanie produktu z košíka.',
-            ]);
-        }
-
         $cartItem = Produkt_v_kosiku::findOrFail($cartItemId);
         $cartItem->delete();
 

@@ -19,6 +19,7 @@ class ZabudnuteHesloController extends Controller
         $request->validate([
             'email' => 'required|email',
         ], [
+            'email.required' => 'Prosím, zadajte e-mailovú adresu',
             'email.email' => 'Prosím, zadajte platnú e-mailovú adresu',
         ]);
 
